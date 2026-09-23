@@ -1,0 +1,273 @@
+/* ============================================
+   HEADER + FOOTER — Soldado y Coketa
+   Estructura común a las 3 páginas (index, lookbook,
+   tienda). Van en un único fichero porque el header y
+   el footer son la MISMA plantilla en todas las páginas.
+   ============================================
+   Usa var() (ver variables.css para el porqué), y además
+   position: sticky en el header y transition en los :hover
+   de enlaces/botones — CSS3 estándar, ver nota completa en
+   variables.css. */
+
+/* ---------- HEADER ---------- */
+
+/* Selector de ELEMENTO */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-negro);
+  border-bottom: 2px solid var(--color-rosa);
+}
+
+/* Selector de ID: la barra concreta de este header */
+#site-header {
+  width: 100%;
+}
+
+/* Fila del ticker (cinta animada con el eslogan) */
+.header__ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-gris-oscuro);
+}
+
+/* Selector de CLASE: el texto que se repite en bucle */
+.header__ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.header__ticker-text {
+  font-family: var(--fuente-display);
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  letter-spacing: 0.08em;
+  color: var(--color-rosa);
+  padding: 0.6rem 3rem 0.6rem 0;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__ticker-track {
+    animation: none;
+  }
+}
+
+/* Fila de navegación principal */
+.header__nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.5rem;
+}
+
+/* El tamaño se fija aquí, no en el HTML: alto en vh (relativo a la
+   pantalla) y ancho máximo en % (relativo al contenedor), nunca en
+   píxeles fijos, para que el logo escale con el header en cualquier
+   resolución.
+   El 40% va en el LINK, no en la imagen: si se pone en la imagen,
+   su ancho máximo queda calculado sobre el propio ancho del link
+   (que se ajusta al contenido, es decir, a la imagen) -- una
+   referencia circular que en la práctica encoge y deforma el logo
+   a una fracción de su tamaño real. Puesto en el link (que sí tiene
+   un ancho de referencia claro: el de .header__nav-row) el 40% solo
+   actúa como tope de seguridad en pantallas muy bajas/anchas, sin
+   afectar al tamaño normal. */
+.header__logo-link {
+  display: flex;
+  align-items: center;
+  max-width: 40%;
+}
+
+.header__logo-img {
+  display: block;
+  height: 4vh;
+  width: auto;
+  max-width: 100%;
+}
+
+.header__menu {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__menu a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-family: var(--fuente-cuerpo);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Pseudo-clase :hover en un elemento de tipo enlace */
+.header__menu a:hover {
+  color: var(--color-rosa);
+  border-color: var(--color-rosa);
+}
+
+/* Pseudo-clase :focus-visible, para quien navega con teclado */
+.header__menu a:focus-visible,
+.header__logo-link:focus-visible {
+  outline: 2px solid var(--color-rosa);
+  outline-offset: 3px;
+}
+
+/* Marca visualmente el enlace de la página actual */
+.header__menu a[aria-current="page"] {
+  color: var(--color-rosa);
+  border-color: var(--color-rosa);
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border-top: 2px solid var(--color-rosa);
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+#site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer__brand {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.footer__social ul {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: var(--fuente-cuerpo);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__social a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer__social a:hover {
+  color: var(--color-rosa);
+  border-color: var(--color-rosa);
+}
+
+.footer__social a:focus-visible {
+  outline: 2px solid var(--color-rosa);
+  outline-offset: 3px;
+}
+
+.footer__newsletter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer__newsletter label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.footer__newsletter input {
+  background: transparent;
+  border: 1px solid var(--color-gris);
+  color: var(--color-blanco);
+  padding: 0.6rem 1rem;
+  font-family: var(--fuente-cuerpo);
+  min-width: 220px;
+}
+
+.footer__newsletter input:focus-visible {
+  outline: 2px solid var(--color-rosa);
+  outline-offset: 2px;
+}
+
+.footer__newsletter button {
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-family: var(--fuente-display);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.footer__newsletter button:hover {
+  background-color: var(--color-rosa-palido);
+}
+
+.footer__contacto {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.85rem;
+  color: var(--color-gris);
+  line-height: 1.6;
+}
+
+.footer__contacto a {
+  color: var(--color-gris);
+}
+
+.footer__copy {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  color: var(--color-gris);
+}
+
+/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+@media (max-width: 640px) {
+  .header__nav-row {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .header__menu {
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer__newsletter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer__newsletter input {
+    min-width: 0;
+  }
+}

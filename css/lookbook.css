@@ -1,0 +1,159 @@
+/* ============================================
+   LOOKBOOK — Soldado y Coketa
+   CSS base: vídeo grande de la colección (sin estampado, sin
+   iag.css), portfolio de fotos reales, y guía de tallas.
+   ============================================
+   Usa var(), clamp() y tbody tr:nth-child(even) para filas
+   alternas de tabla — CSS3 estándar, ver nota completa en
+   variables.css. */
+
+body {
+  margin: 0;
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  font-family: var(--fuente-cuerpo);
+}
+
+.intro {
+  padding: 3rem 1.5rem 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  /* Fondo sólido: si se enlaza iag.css, el vídeo de más abajo queda
+     fijo en pantalla y esta sección necesita taparlo por completo
+     mientras esté en la parte de arriba (igual que .desfile en Inicio). */
+  background-color: var(--color-negro);
+}
+
+.intro h1 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.intro p {
+  line-height: 1.6;
+  color: var(--color-gris);
+}
+
+/* ---------- Vídeo de la colección ----------
+   Aquí es un bloque de vídeo grande normal, en el flujo de la página
+   (SIN el estampado ni el position:fixed del hero de Inicio: eso vive
+   en iag.css). Sin iag.css, el vídeo se ve completo igualmente. */
+.lookbook-video {
+  width: 100%;
+  background-color: var(--color-gris-oscuro);
+}
+
+.lookbook-video__player {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+}
+
+/* ---------- Portfolio (fotos reales de la colección) ---------- */
+.portfolio {
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  /* Fondo sólido: es la sección que "sube y tapa" el vídeo fijo
+     cuando se activa iag.css (mismo motivo que en .intro). */
+  background-color: var(--color-negro);
+}
+
+.portfolio h2 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 0 2rem;
+}
+
+.portfolio__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio__lista img {
+  width: 280px;
+  max-width: 42vw;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Guía de tallas (tabla) ---------- */
+.tallas-section {
+  padding: 2rem 1.5rem 4rem;
+  max-width: 720px;
+  margin: 0 auto;
+  /* Mismo motivo que .intro/.portfolio: tapa el vídeo fijo si está
+     activo iag.css cuando esta sección llega arriba del todo. */
+  background-color: var(--color-negro);
+}
+
+.tallas-section h2 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+/* Selector de ELEMENTO: toda tabla del sitio comparte este estilo base */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  color: var(--color-gris);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid #333333;
+  padding: 0.65rem 0.9rem;
+  text-align: center;
+}
+
+thead th {
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  font-family: var(--fuente-display);
+  letter-spacing: 0.03em;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-gris-oscuro);
+}
+
+/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+@media (max-width: 640px) {
+  .lookbook-video__player {
+    max-height: 45vh;
+  }
+
+  .portfolio__lista img {
+    width: 160px;
+    height: 200px;
+  }
+
+  th, td {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}

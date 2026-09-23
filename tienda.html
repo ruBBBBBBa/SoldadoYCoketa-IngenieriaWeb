@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soldado y Coketa — Tienda</title>
+  <meta name="description" content="Tienda de Soldado y Coketa: catálogo de productos, encargo personalizado y acceso de clientas.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/headerfooter.css">
+  <link rel="stylesheet" href="css/tienda.css">
+  <!-- iag.css: capa OPCIONAL, no evaluable. -->
+  <link rel="stylesheet" href="css/iag.css">
+</head>
+<body>
+
+  <div id="pole-strip" aria-hidden="true"></div>
+
+  <header id="site-header">
+    <div class="header__ticker">
+      <div class="header__ticker-track">
+        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
+        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
+      </div>
+    </div>
+
+    <nav class="header__nav-row" aria-label="Navegación principal">
+      <a href="index.html" class="header__logo-link">
+        <img src="assets/logo-header.png" alt="Soldado y Coketa" class="header__logo-img">
+      </a>
+      <ul class="header__menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+        <li><a href="tienda.html" aria-current="page">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Interruptor "añadir al pedido" sin JavaScript: técnica CSS pura
+         (checkbox hack) con :checked + combinador de hermanos general
+         (~). Van aquí, como hijos directos de <main>, porque el
+         combinador ~ solo alcanza a hermanos: desde aquí puede llegar
+         tanto a .catalogo (para resaltar la tarjeta marcada) como a
+         .formularios (para mostrar la línea del pedido). Se marcan y
+         desmarcan con la etiqueta "Añadir al pedido" de cada tarjeta;
+         ocultos visualmente igual que .footer__newsletter label, pero
+         accesibles por teclado y lector de pantalla. -->
+    <input type="checkbox" id="prod-camiseta" class="prod-check">
+    <input type="checkbox" id="prod-sudadera" class="prod-check">
+    <input type="checkbox" id="prod-tangas" class="prod-check">
+    <input type="checkbox" id="prod-top" class="prod-check">
+    <input type="checkbox" id="prod-conjunto" class="prod-check">
+
+    <section class="intro" aria-label="Presentación de la tienda">
+      <h1>Tienda</h1>
+      <p>
+        Compra online no disponible todavía: de momento gestionamos
+        cada pedido de forma personalizada. Consulta el catálogo y
+        rellena el formulario de encargo para reservar tu talla.
+      </p>
+    </section>
+
+    <!-- Catálogo placeholder: nombres/precios/fotos de relleno, fáciles
+         de sustituir por los productos reales de la marca. Las fotos
+         reutilizan temporalmente modelo-N.png (fondo transparente de la
+         colección de desfile) — sustituir por foto real de cada
+         producto en cuanto esté disponible. -->
+    <section class="catalogo" aria-label="Catálogo de productos">
+      <h2>Catálogo</h2>
+      <ul class="catalogo__lista">
+
+        <li>
+          <article class="producto" data-prod="camiseta">
+            <span class="producto__badge">Best seller</span>
+            <img src="assets/modelo-4.png" alt="Camiseta Actitud" width="220" height="300">
+            <h3>Camiseta Actitud</h3>
+            <p>Algodón orgánico, estampado frontal.</p>
+            <p class="producto__precio">24,90&nbsp;€</p>
+            <label for="prod-camiseta" class="producto__anadir">Añadir al pedido</label>
+          </article>
+        </li>
+
+        <li>
+          <article class="producto" data-prod="sudadera">
+            <span class="producto__badge">Nuevo</span>
+            <img src="assets/modelo-5.png" alt="Sudadera Calle" width="220" height="300">
+            <h3>Sudadera Calle</h3>
+            <p>Capucha, interior perchado.</p>
+            <p class="producto__precio">44,90&nbsp;€</p>
+            <label for="prod-sudadera" class="producto__anadir">Añadir al pedido</label>
+          </article>
+        </li>
+
+        <li>
+          <article class="producto" data-prod="tangas">
+            <span class="producto__badge">Bajo pedido</span>
+            <img src="assets/modelo-6.png" alt="Pack Tangas" width="220" height="300">
+            <h3>Pack Tangas</h3>
+            <p>Set de 3 unidades, algodón elástico.</p>
+            <p class="producto__precio">19,90&nbsp;€</p>
+            <label for="prod-tangas" class="producto__anadir">Añadir al pedido</label>
+          </article>
+        </li>
+
+        <li>
+          <article class="producto" data-prod="top">
+            <span class="producto__badge">Últimas unidades</span>
+            <img src="assets/modelo-7.png" alt="Top Noche" width="220" height="300">
+            <h3>Top Noche</h3>
+            <p>Edición corta, tejido satinado.</p>
+            <p class="producto__precio">29,90&nbsp;€</p>
+            <label for="prod-top" class="producto__anadir">Añadir al pedido</label>
+          </article>
+        </li>
+
+        <li>
+          <article class="producto" data-prod="conjunto">
+            <span class="producto__badge">Nuevo</span>
+            <img src="assets/modelo-8.png" alt="Conjunto Coketa" width="220" height="300">
+            <h3>Conjunto Coketa</h3>
+            <p>Top y falda a juego, estampado exclusivo.</p>
+            <p class="producto__precio">54,90&nbsp;€</p>
+            <label for="prod-conjunto" class="producto__anadir">Añadir al pedido</label>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="formularios" aria-label="Formularios de tienda">
+
+      <form class="formulario" action="#" method="post">
+        <h2>Encargo personalizado</h2>
+
+        <fieldset>
+          <legend>Datos de contacto</legend>
+
+          <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+
+          <div class="campo">
+            <label for="email-encargo">Email</label>
+            <input type="email" id="email-encargo" name="email" required>
+          </div>
+
+          <div class="campo">
+            <label for="fecha-entrega">Fecha de entrega deseada</label>
+            <input type="date" id="fecha-entrega" name="fecha-entrega">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Detalle del pedido</legend>
+
+          <div class="campo campo--pedido">
+            <span>Prendas seleccionadas del catálogo</span>
+            <ul class="lista-pedido">
+              <li class="lista-pedido__linea" data-prod="camiseta">Camiseta Actitud — 24,90&nbsp;€</li>
+              <li class="lista-pedido__linea" data-prod="sudadera">Sudadera Calle — 44,90&nbsp;€</li>
+              <li class="lista-pedido__linea" data-prod="tangas">Pack Tangas — 19,90&nbsp;€</li>
+              <li class="lista-pedido__linea" data-prod="top">Top Noche — 29,90&nbsp;€</li>
+              <li class="lista-pedido__linea" data-prod="conjunto">Conjunto Coketa — 54,90&nbsp;€</li>
+              <li class="lista-pedido__vacio">Todavía no has añadido ninguna prenda del catálogo. Márcalas con "Añadir al pedido" más arriba.</li>
+            </ul>
+          </div>
+
+          <div class="campo">
+            <label for="prenda">Prenda personalizada</label>
+            <select id="prenda" name="prenda">
+              <option value="">— No quiero prenda personalizada —</option>
+              <option value="personalizada">Prenda personalizada (descríbela abajo, en instrucciones especiales)</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="cantidad">Cantidad (prenda personalizada)</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+          </div>
+
+          <div class="campo campo--radios">
+            <span>Talla</span>
+            <div class="opcion">
+              <input type="radio" id="talla-xs" name="talla" value="XS">
+              <label for="talla-xs">XS</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="talla-s" name="talla" value="S">
+              <label for="talla-s">S</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="talla-m" name="talla" value="M" checked>
+              <label for="talla-m">M</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="talla-l" name="talla" value="L">
+              <label for="talla-l">L</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="talla-xl" name="talla" value="XL">
+              <label for="talla-xl">XL</label>
+            </div>
+          </div>
+
+          <div class="campo campo--checks">
+            <span>Extras</span>
+            <div class="opcion">
+              <input type="checkbox" id="regalo" name="regalo">
+              <label for="regalo">Envolver para regalo</label>
+            </div>
+            <div class="opcion">
+              <input type="checkbox" id="newsletter" name="newsletter" checked>
+              <label for="newsletter">Suscribirme a la newsletter</label>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Instrucciones especiales o descripción de tu prenda personalizada</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tela, corte, estampado, alguna petición especial..."></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit">Enviar encargo</button>
+      </form>
+
+      <form class="formulario" action="#" method="post">
+        <h2>Acceso clientas</h2>
+        <p>¿Ya nos has comprado antes? Entra para ver tus pedidos.</p>
+
+        <div class="campo">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="login-email" required>
+        </div>
+
+        <div class="campo">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" name="login-password" required minlength="6">
+        </div>
+
+        <button type="submit">Entrar</button>
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer id="site-footer">
+    <p class="footer__brand">SOLDADO Y COKETA</p>
+
+    <nav class="footer__social" aria-label="Redes sociales">
+    <ul>
+      <li><a href="https://instagram.com/soldadoycoketa" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="lookbook.html">Lookbook</a></li>
+    </ul>
+    </nav>
+
+    <form class="footer__newsletter" action="#" method="post">
+      <label for="newsletter-email">Tu email</label>
+      <input type="email" id="newsletter-email" name="email" placeholder="Tu email" required>
+      <button type="submit">Únete</button>
+    </form>
+
+    <p class="footer__contacto">
+      Contacto: <a href="mailto:hola@soldadoycoketa.com">hola@soldadoycoketa.com</a> ·
+      Bilbao, España
+    </p>
+
+    <p class="footer__copy">&copy; 2026 Soldado y Coketa. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

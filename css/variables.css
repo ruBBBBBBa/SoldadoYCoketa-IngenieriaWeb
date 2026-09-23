@@ -1,0 +1,57 @@
+/* ============================================
+   SOLDADO Y COKETA — Variables de marca
+   Un único punto donde se definen los colores y
+   tipografías para no repetirlos en cada .css
+   ============================================
+
+   Estas son algunas de las técnicas que he utilizado para el proyecto que no aparecen en
+   ningún lado en las diapositivas del tema y que me parece que debería explicar un poco para
+   demostrar que no las he dejado puestas sin entenderlas:
+   - Custom properties (:root + var()), como en este fichero.
+      Estas las he utilizado principalmente para la paleta de colores de la marca, pero también
+      son bastante útiles para el tamaño de algunas divisiones y para las tipografías.
+
+   - box-sizing: border-box (reset de abajo).
+      Esto es para que el padding se aplique por dentro de las cajas en las que se le añade,
+      no por fuera. Así evito que los formularios u otros elementos se salgan de la pantalla en
+      las diferentes dimensiones.
+
+   - position: sticky/relative/absolute (header fijo, capas).
+      #TODO
+   - clamp() para tipografía fluida.
+      Esto lo he utilizado para los títulos, para que el tamaño de la letra vaya creciendo o 
+      encogiendo según la pantalla pero que no se haga ni demasiado pequeño ni demasiado grande.
+
+   - transition en combinación con :hover.
+      #TODO
+   - tbody tr:nth-child(even) para filas alternas de tabla.
+      #TODO
+
+   */
+
+:root {
+  /* Paleta extraída de los assets originales de la marca */
+  --color-negro: #000000;
+  --color-blanco: #ffffff;
+  --color-rosa: #ff8dc7;        /* rosa principal (logo, acentos) */
+  --color-rosa-palido: #ffc9e4; /* rosa de las texturas de fondo */
+  --color-gris: #d4d4d4;        /* gris neutro de apoyo */
+  --color-gris-oscuro: #1a1a1a; /* gris para bloques/tarjetas sobre negro */
+
+  /*Fuentes*/
+  --fuente-display: "Anton", "Archivo Black", sans-serif;
+  --fuente-cuerpo: "Poppins", "Helvetica Neue", Arial, sans-serif;
+
+  /* Alto del header, en vh (% de la ALTURA DE PANTALLA) */
+  --alto-header: 7vh;
+
+  /* Ancho de la barra de pole (solo se usa si se enlaza iag.css) */
+  --ancho-pole: 20%;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

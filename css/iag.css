@@ -1,0 +1,205 @@
+/* ============================================
+   IAG.CSS — capa OPCIONAL, NO EVALUABLE
+   ============================================
+   Aquí viven los efectos "de más" (parallax, blend
+   modes, animaciones de carrusel) hechos con apoyo de
+   IA generativa, tal y como pide el enunciado:
+
+     "Si se quiere añadir animaciones o estilo muy
+     diferente al visto en clase usando IAg, generar un
+     iag.css (no evaluable)"
+
+   Si se borra este <link> del <head>, las tres páginas
+   siguen siendo HTML/CSS completos, válidos y con buen
+   aspecto — esto solo añade capas encima.
+   ============================================ */
+
+/* ---------- Barra de pole ----------
+   Silueta decorativa que recorre TODA la página de
+   arriba a abajo, integrada de forma transparente. */
+#pole-strip {
+  position: absolute;
+  top: var(--alto-header);
+  left: 0;
+  transform: translateX(-25%);
+  width: var(--ancho-pole);
+  height: calc(100% - var(--alto-header));
+  z-index: 100;
+  pointer-events: none;
+  background-image: url("../assets/pole-silhouettes.png");
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 100% auto;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+body {
+  position: relative; /* referencia para que #pole-strip calcule su 100% de alto */
+  overflow-x: hidden;
+}
+
+/* ---------- Hero fijo en Inicio (efecto namedcollective.com) ----------
+   El hero pasa de estar en el flujo normal (CSS base) a
+   quedarse pegado a la pantalla mientras el resto de la
+   página sube y lo tapa. */
+.hero-spacer {
+  display: block;
+  height: 100vh;
+}
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Texturas superpuestas con mezcla "screen" para dar
+   densidad al estampado sin tapar el logo */
+.hero__pattern--rosa-base,
+.hero__pattern--rosa,
+.hero__vignette {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hero__pattern--rosa-base {
+  z-index: 1;
+  background-image: url("../assets/textura-rosa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.4;
+}
+
+.hero__pattern--rosa {
+  z-index: 2;
+  background-image: url("../assets/textura-rosa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.hero__vignette {
+  z-index: 3;
+  background: radial-gradient(circle at center,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.95) 30%,
+    rgba(0, 0, 0, 0.4) 55%,
+    transparent 75%);
+}
+
+.hero__lockup,
+.hero__eslogan,
+.hero > .boton {
+  position: relative;
+  z-index: 4;
+}
+
+/* El contenido que sigue necesita su propio contexto de
+   apilamiento por encima del hero fijo */
+main {
+  position: relative;
+  z-index: 2;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.desfile,
+.manifiesto-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Vídeo fijo en Lookbook (mismo efecto namedcollective.com
+   que el hero de Inicio, pero sin estampado) ----------
+   El vídeo pasa de estar en el flujo normal (CSS base) a quedarse
+   pegado a la pantalla mientras el resto de la página (intro, fotos,
+   guía de tallas) sube y lo va tapando. */
+.lookbook-video-spacer {
+  display: block;
+  height: 100vh;
+}
+
+.lookbook-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.lookbook-video__player {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+}
+
+/* Estas secciones necesitan su propio contexto de apilamiento por
+   encima del vídeo fijo, igual que .desfile/.manifiesto-section en
+   Inicio por encima del hero fijo */
+.intro,
+.portfolio,
+.tallas-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Desfile de Inicio: carrusel animado ----------
+   La fila estática de looks (CSS base) pasa a ser una cinta que se
+   desliza en bucle infinito, igual que tenía antes el lookbook. Al
+   pasar el ratón por encima se detiene la cinta entera (para poder
+   mirar bien) y el look bajo el cursor se amplía con el mismo hover
+   simple que ya tiene la capa evaluable (inicio.css). */
+.desfile__lista {
+  flex-wrap: nowrap;
+  width: max-content;
+  /* La base (inicio.css) le pone max-width:1300px para el modo
+     cuadrícula; en modo cinta hay que anularlo, si no las 22 tarjetas
+     se comprimen para caber en esos 1300px (con flex-wrap:nowrap no
+     pueden bajar de línea, así que se encogen y las imágenes de
+     220px fijos se solapan unas con otras -- el texto de un
+     figcaption "Look XX" acaba pintado encima de la foto de al lado). */
+  max-width: none;
+  animation: deslizar-desfile 30s linear infinite;
+}
+
+.desfile__lista:hover {
+  animation-play-state: paused;
+}
+
+/* Las copias duplicadas (ocultas en el CSS base) se muestran solo en
+   modo carrusel, para que el bucle no tenga corte visible */
+.desfile__item[aria-hidden="true"] {
+  display: block;
+}
+
+@keyframes deslizar-desfile {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desfile__lista {
+    animation: none;
+  }
+
+  .header__ticker-track {
+    animation: none;
+  }
+}

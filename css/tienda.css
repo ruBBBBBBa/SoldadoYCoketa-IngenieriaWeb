@@ -1,0 +1,342 @@
+/* ============================================
+   TIENDA — Soldado y Coketa
+   CSS base: catálogo en tarjetas + formulario de encargo
+   personalizado (con selección de catálogo sin JavaScript,
+   técnica "checkbox hack") + formulario de acceso de clientas.
+   ============================================
+   Usa var(), clamp() y transition en :hover/:focus-visible —
+   CSS3 estándar, ver nota completa en variables.css. */
+
+body {
+  margin: 0;
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  font-family: var(--fuente-cuerpo);
+}
+
+.intro {
+  padding: 3rem 1.5rem 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro h1 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.intro p {
+  line-height: 1.6;
+  color: var(--color-gris);
+}
+
+/* ---------- Catálogo (tarjetas de producto) ---------- */
+.catalogo {
+  padding: 1.5rem 1.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.catalogo h2 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+.catalogo__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Selector de CLASE: cada prenda es un <article> autónomo, con su
+   propia imagen, nombre, descripción y precio */
+.producto {
+  position: relative;
+  background-color: var(--color-gris-oscuro);
+  border: 1px solid #2c2c2c;
+  width: 240px;
+  padding: 1rem;
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+
+.producto img {
+  width: 100%;
+  max-width: 200px;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+.producto h3 {
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.4rem;
+}
+
+.producto p {
+  font-size: 0.85rem;
+  color: var(--color-gris);
+  line-height: 1.4;
+  margin: 0 0 0.6rem;
+}
+
+.producto__precio {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  font-size: 1.1rem;
+}
+
+/* Insignia anclada a la esquina de la tarjeta */
+.producto__badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  font-family: var(--fuente-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.6rem;
+}
+
+/* El label hace de botón: el control real es el checkbox oculto
+   (ver más abajo, técnica sin JavaScript) */
+.producto__anadir {
+  display: inline-block;
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  font-family: var(--fuente-display);
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.producto__anadir:hover {
+  background-color: var(--color-rosa-palido);
+}
+
+/* ---------- "Añadir al pedido" sin JavaScript (checkbox hack) ----------
+   input[type=checkbox]:checked + combinador de hermanos general (~):
+   ambas técnicas vistas en clase. Los checkboxes están ocultos
+   visualmente (mismo patrón que .footer__newsletter label) pero siguen
+   siendo accesibles por teclado y lector de pantalla. Es repetitivo (un
+   bloque de reglas por producto) porque el checkbox hack no se puede
+   generalizar sin JavaScript ni un preprocesador CSS. */
+.prod-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"],
+#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"],
+#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"],
+#prod-top:checked ~ .catalogo .producto[data-prod="top"],
+#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] {
+  border-color: var(--color-rosa);
+}
+
+#prod-camiseta:focus-visible ~ .catalogo .producto[data-prod="camiseta"],
+#prod-sudadera:focus-visible ~ .catalogo .producto[data-prod="sudadera"],
+#prod-tangas:focus-visible ~ .catalogo .producto[data-prod="tangas"],
+#prod-top:focus-visible ~ .catalogo .producto[data-prod="top"],
+#prod-conjunto:focus-visible ~ .catalogo .producto[data-prod="conjunto"] {
+  outline: 2px solid var(--color-rosa);
+  outline-offset: 2px;
+}
+
+/* Línea del pedido: oculta hasta que su checkbox se marca */
+.lista-pedido__linea {
+  display: none;
+}
+
+#prod-camiseta:checked ~ .formularios .lista-pedido__linea[data-prod="camiseta"],
+#prod-sudadera:checked ~ .formularios .lista-pedido__linea[data-prod="sudadera"],
+#prod-tangas:checked ~ .formularios .lista-pedido__linea[data-prod="tangas"],
+#prod-top:checked ~ .formularios .lista-pedido__linea[data-prod="top"],
+#prod-conjunto:checked ~ .formularios .lista-pedido__linea[data-prod="conjunto"] {
+  display: list-item;
+}
+
+/* El mensaje de "vacío" se oculta en cuanto hay algo marcado */
+#prod-camiseta:checked ~ .formularios .lista-pedido__vacio,
+#prod-sudadera:checked ~ .formularios .lista-pedido__vacio,
+#prod-tangas:checked ~ .formularios .lista-pedido__vacio,
+#prod-top:checked ~ .formularios .lista-pedido__vacio,
+#prod-conjunto:checked ~ .formularios .lista-pedido__vacio {
+  display: none;
+}
+
+.lista-pedido {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.lista-pedido__linea {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.lista-pedido__vacio {
+  color: var(--color-gris);
+  font-size: 0.85rem;
+}
+
+/* ---------- Formularios (encargo + acceso) ---------- */
+.formularios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem 1.5rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Selector de CLASE: caja reutilizable para cada formulario */
+.formulario {
+  background-color: var(--color-gris-oscuro);
+  border: 1px solid #2c2c2c;
+  padding: 2rem;
+  flex: 1 1 380px;
+  max-width: 480px;
+}
+
+.formulario h2 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+fieldset {
+  border: 1px solid #3a3a3a;
+  padding: 1rem 1.2rem 1.2rem;
+  margin: 0 0 1.2rem;
+  min-width: 0;
+}
+
+legend {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  padding: 0 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  color: var(--color-gris);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  background-color: var(--color-negro);
+  border: 1px solid var(--color-gris);
+  color: var(--color-blanco);
+  padding: 0.6rem 0.75rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Pseudo-clase :focus-visible en todos los campos del formulario */
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+  outline: 2px solid var(--color-rosa);
+  outline-offset: 1px;
+  border-color: var(--color-rosa);
+}
+
+.campo--radios,
+.campo--checks {
+  gap: 0.5rem;
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.opcion label {
+  color: var(--color-blanco);
+  font-size: 0.9rem;
+}
+
+.formulario button {
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  border: none;
+  padding: 0.75rem 1.6rem;
+  font-family: var(--fuente-display);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.formulario button:hover {
+  background-color: var(--color-rosa-palido);
+}
+
+.formulario button:focus-visible {
+  outline: 2px solid var(--color-blanco);
+  outline-offset: 2px;
+}
+
+/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+@media (max-width: 640px) {
+  .formularios {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formulario {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .producto {
+    width: 100%;
+    max-width: 300px;
+  }
+}
