@@ -40,7 +40,15 @@ body {
    proporción real de cada imagen. Con un height fijo en vh, en
    pantallas muy altas y estrechas (móvil en vertical) el max-width
    en vw recorta el ancho pero no el alto, y el logo sale deformado. */
+/* El logo hace de <h1> de la página (su alt es el texto del título):
+   se quitan los márgenes por defecto del h1 para que no cambie nada
+   visualmente. */
+.hero__titulo {
+  margin: 0;
+}
+
 .hero__logo {
+  display: block;
   width: auto;
   height: auto;
   max-height: 25vh;

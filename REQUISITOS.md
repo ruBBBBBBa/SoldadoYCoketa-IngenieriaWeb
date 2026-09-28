@@ -75,7 +75,8 @@ normal de la página, sin hueco de vídeo visible).
 - Usar todos los elementos HTML vistos en clase, correctamente.
 - Usar selectores de clase, id y tipo donde corresponda.
 - **Todos los ficheros deben pasar la validación real de
-  validator.w3.org.** ✅ verificado en local con el checker oficial.
+  validator.w3.org.** ⚠️ verificado antes de la reestructuración del
+  22-23/09; **hay que revalidar** la versión actual (ver §5).
 - Entrega: zip `IW-<DNI>-E1.zip` con el prototipo completo.
 - Aviso explícito contra el uso excesivo de IA generativa.
 - Válvula de escape explícita del enunciado: *"Si se quiere añadir
@@ -178,8 +179,9 @@ tú cómo de estricto quieres ser. Opciones, de más a menos conservadora:
    `position` cuentan como "visto en clase" antes de tocar nada — es la
    opción más segura y la más rápida.
 
-👉 **Pendiente de decidir contigo.** Mi recomendación es la 3 si hay
-margen de tiempo, si no la 2.
+👉 **Decidido: opción 2** (ver §5). Ojo: la nota de `variables.css`
+todavía tiene 3 `#TODO` sin explicar (position, transition,
+nth-child) — hay que completarlos antes de entregar.
 
 ---
 
@@ -269,36 +271,160 @@ margen de tiempo, si no la 2.
       tarjetas — **sin JavaScript**, con la técnica CSS "checkbox
       hack" (`:checked` + combinador `~`). Detalle completo en
       `/home/rubba/.claude/plans/atomic-seeking-journal.md`.
+
+### Pendiente (revisado 2026-09-28)
+
+**Bloqueante para la entrega** (la rúbrica lo penaliza directamente):
+
+- [ ] **Revalidar HTML/CSS en validator.w3.org.** Sigue sin Java en esta
+      máquina (no hay `vnu.jar` local). Alternativa sin instalar nada:
+      subir los 3 HTML y los 5 CSS a mano en validator.w3.org y
+      jigsaw.w3.org/css-validator. Lo último validado es anterior a la
+      reestructuración.
+- [ ] **Completar los 3 `#TODO` de `variables.css`** (explicación de
+      `position`, `transition` y `nth-child`). Tal como están parecen
+      comentarios a medio hacer, justo lo que penaliza la rúbrica.
+- [x] **`<h1>` en Inicio** (2026-09-28): el logo del hero va dentro de
+      `<h1 class="hero__titulo">` (con `alt="Soldado y Coketa"`), con los
+      márgenes del h1 a 0 en `inicio.css`. Se ve exactamente igual: logo
+      a 283×200 en desktop y 262×185 en móvil, con su proporción real.
+- [x] **Las prendas del catálogo ahora sí se envían con el encargo**
+      (2026-09-28): los 5 `.prod-check` llevan `name="prendas"`,
+      `value` y `form="form-encargo"`, así que pertenecen al formulario
+      aunque sigan fuera de él (necesario para el checkbox hack).
+      Comprobado con Playwright que se marcan, se ven en la lista y
+      aparecen en los datos del formulario.
+- [x] **Favicon** (2026-09-28): `<link rel="icon">` con
+      `logo-header.png` en las 3 páginas.
+- [ ] Revisar comentarios e indentación del código fuente final. Ojo a
+      `<nav class="footer__social">`: el `<ul>` de dentro está sin
+      indentar en las 3 páginas.
+
+**Contenido (depende de la marca/usuario):**
+
 - [ ] **Vídeo pendiente de añadir** (la estructura ya está lista, solo
-      falta el archivo): 1 vídeo de colección en Lookbook
-      (`assets/videos/lookbook-reel.mp4`, comentado dentro del
-      `<video>` de `lookbook.html`). Inicio ya no lleva vídeo por look
-      (se descartó esa idea, ver más arriba).
+      falta el archivo): `assets/videos/lookbook-reel.mp4`, comentado
+      dentro del `<video>` de `lookbook.html`. Mientras no esté, con
+      `iag.css` el Lookbook dedica una pantalla entera (100vh fija) a un
+      póster con controles que no reproducen nada. Si el vídeo no llega
+      a tiempo, mejor quitar `controls` o sustituir el `<video>` por la
+      foto de portada.
 - [ ] **Catálogo de Tienda con productos reales**: de momento son 5
       placeholders (Camiseta Actitud, Sudadera Calle, Pack Tangas, Top
       Noche, Conjunto Coketa) con fotos reutilizadas de `modelo-4..8.png`
-      (looks de desfile, no fotos de producto real) — sustituir nombres,
+      (looks de desfile, no fotos de producto real): sustituir nombres,
       precios, descripciones y fotos cuando estén disponibles.
 - [ ] Reescribir el texto de la tabla de "Guía de tallas" en lookbook con
       tono "divertido" (lo hace el usuario).
-- [ ] Decidir si merece la pena añadir un `<aside>` en alguna página
-      (el profesor lo explica con detalle en la práctica 4 y no lo hemos
-      usado todavía en ninguna página).
-- [ ] Revisar comentarios e indentación del código fuente final — la
-      rúbrica penaliza "código sin comentar o sin indentar" explícitamente.
-- [ ] Revalidar HTML/CSS con `vnu.jar` en cuanto haya Java instalado
-      (ver §2) — de momento solo revisión manual tras la reestructuración.
 - [ ] Decidir si el pole-strip debe notarse *menos* agresivo (quedó
       pendiente de validar con la creadora de la marca).
 
+**Pedidos del equipo (2026-09-28):**
+
+- [ ] **Ampliar el logo de Soldado y Coketa y los tangas del hero de
+      Inicio.** Ahora mismo el tope es `max-height: 25vh` / `max-width:
+      70vw` (logo) y `14vh` / `45vw` (tangas) en `.hero__logo` y
+      `.hero__tangas` de `inicio.css`. Se suben esos valores, sin volver
+      a poner `height` fijo, porque eso deformaba el logo en móvil (ver
+      historial de arriba). Revisar en móvil vertical después.
+- [ ] **Sustituir los textos de las 3 páginas por textos escritos por la
+      dueña de la marca**, para que sean originales y no suenen a IA:
+      eslogan y manifiesto de Inicio, intro del Lookbook, intro y
+      descripciones de productos de Tienda, textos de los formularios.
+      Conviene pasárselos en una lista para que los reescriba de una vez.
+- [ ] **Cambiar el email de contacto del footer** (ahora
+      `hola@soldadoycoketa.com`, inventado) por el email real de la
+      dueña, en las 3 páginas (`href="mailto:…"` y el texto del enlace).
+- [ ] **Copyright: escribir "SoldadoYCoketa" junto** en
+      `.footer__copy` de las 3 páginas (ahora pone "Soldado y Coketa").
+      Decidir si también cambia `.footer__brand` ("SOLDADO Y COKETA").
+- [ ] **Reorganizar las fotos del portfolio del Lookbook para que no
+      queden en una cuadrícula tan ordenada** (estilo collage/editorial:
+      tamaños distintos, fotos verticales más altas, alguna desplazada).
+      Ahora todas se recortan a 280×210 con `object-fit: cover`, lo que
+      además corta las 2 fotos verticales (01 y 02). Opción sencilla y
+      "de clase": `columns` (CSS multicolumna, tipo mosaico) respetando
+      la proporción real de cada foto, o flex con clases de tamaño
+      (`.foto--grande`, `.foto--alta`) en algunas. **Revisar que en
+      móvil quede bien**: en pantallas estrechas pasar a 1-2 columnas
+      dentro de la media query de 640px.
+
+**Opcional (suma puntos en "usar todos los elementos vistos en clase"):**
+
+- [ ] Decidir si merece la pena añadir un `<aside>` en alguna página
+      (el profesor lo explica con detalle en la práctica 4 y no lo hemos
+      usado todavía en ninguna página). Candidato natural: un `<aside>`
+      en Tienda con "envíos / cambios / cómo funciona el encargo".
+- [ ] Elementos vistos en clase que **no aparecen en ninguna página**:
+      `<ol>`, `<strong>`/`<em>`, `<hr>`, `<br>`, `colspan`/`rowspan`,
+      `<tfoot>`, `<optgroup>`. Ninguno es obligatorio, pero se
+      pueden meter con sentido sin forzar: `<ol>` para "cómo hacer un
+      encargo" (pasos), `<tfoot>` en la guía de tallas ("si estás entre
+      dos tallas, coge la mayor"), `<optgroup>` en el select de prenda,
+      `<strong>` en el manifiesto.
+
+---
+
+## 5b. Estado frente a la rúbrica (revisión 2026-09-28)
+
+| Criterio | Estado | Dónde |
+|---|---|---|
+| 3-4 páginas con enlaces relativos | ✅ 3 páginas | header + footer |
+| Header/footer comunes, CSS en un solo fichero | ✅ | `headerfooter.css` |
+| CSS separado y enlazado en `<head>` | ✅ | 6 ficheros |
+| Selectores de tipo, clase e id | ✅ comentados como tales | `headerfooter.css` |
+| Formulario con ≥6 tipos de elemento | ✅ text, email, date, number, radio, checkbox, password, select, textarea, fieldset/legend | `tienda.html` |
+| Imágenes con width/max-width + alt | ✅ todas | las 3 |
+| Semántico HTML5 | ✅ header, nav, main, section, article, figure, footer · ❌ aside | |
+| Pseudo-clases | ✅ :hover, :focus-visible, :checked, :nth-child | |
+| Media query | ✅ `max-width: 640px` en los 4 CSS de página | |
+| Bloques diferenciados, márgenes, botones consistentes | ✅ | |
+| Footer con info útil | ✅ redes, newsletter, contacto, copyright | |
+| Validación W3C | ⚠️ pendiente de revalidar | §5 |
+| Código comentado | ⚠️ 3 `#TODO` en `variables.css` | §5 |
+| `<h1>` por página | ✅ (en Inicio, el logo del hero) | |
+| Página correcta sin `iag.css` | ✅ comprobado con Playwright (22-23/09) | |
+
 ## 6. Ideas / backlog de diseño (ir añadiendo aquí)
 
-  
+Mejoras encontradas en la revisión del 2026-09-28, de más a menos útil:
+
+- **El botón "Añadir al pedido" no cambia al marcarlo**: solo cambia el
+  borde de la tarjeta, que en móvil apenas se ve. Con la misma técnica
+  (`#prod-x:checked ~ .catalogo .producto[data-prod=x] .producto__anadir`)
+  se puede invertir el color del botón, igual que `.boton:hover`.
+- **Los 5 "Añadir al pedido" suenan igual en lector de pantalla** (mismo
+  texto para 5 checkboxes). Añadir el nombre de la prenda en un `<span>`
+  oculto visualmente, p. ej. "Añadir al pedido <span>Camiseta
+  Actitud</span>".
+- **Peso de imágenes**: `assets/` son 13 MB. `textura-rosa.png` pesa
+  2,3 MB (se ve con opacidad baja, sirve igual un JPG/WebP de ~200 KB),
+  `logo-header.png` es de 2239×2239 px para mostrarse a ~36 px, y los
+  `modelo-N.png` rondan 400 KB cada uno (22 cargas en Inicio con
+  `iag.css`, aunque se repitan los ficheros). Añadir
+  `loading="lazy"` a las 22 fotos del portfolio también ayuda.
+- **CSS repetido entre páginas**: la regla `body {…}` está idéntica en
+  `inicio.css`, `lookbook.css` y `tienda.css`, y `.intro` igual en
+  lookbook y tienda. Se podría mover `body` a `variables.css` (que ya
+  cargan las 3). No es obligatorio: tener cada página autocontenida
+  también es defendible.
+- **`--alto-header: 7vh`** es una estimación: el header real (ticker +
+  nav) mide lo que marcan su padding y fuente, no 7vh, así que el
+  pole-strip puede empezar un poco solapado o separado del header según
+  la pantalla. Solo afecta a `iag.css`.
+- **`prefers-reduced-motion` del ticker está duplicado** en
+  `headerfooter.css` e `iag.css`. Se puede quitar el de `iag.css`.
+- Logo del header a `height: 4vh`: en móvil en horizontal (poca altura)
+  se queda muy pequeño. Un `min-height: 28px` lo evita.
 
 ## 7. Preguntas abiertas
 
-- (vacío por ahora)
+- ¿Llega el vídeo del lookbook antes de la entrega? Si no, decidir qué
+  hacer con el hueco (ver §5).
+- ¿Hay fotos/precios reales para la tienda o se entrega con los
+  placeholders?
 
 
-*Última actualización: generado automáticamente al reconstruir la web
-según la rúbrica formal (ver historial de chat para más detalle).*
+*Última actualización: 2026-09-28. Revisión completa de las 3 páginas y
+los 6 CSS: estado frente a la rúbrica (§5b), pendientes (§5) y mejoras
+(§6).*

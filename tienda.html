@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soldado y Coketa — Tienda</title>
   <meta name="description" content="Tienda de Soldado y Coketa: catálogo de productos, encargo personalizado y acceso de clientas.">
+  <link rel="icon" href="assets/logo-header.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -56,11 +57,11 @@
          desmarcan con la etiqueta "Añadir al pedido" de cada tarjeta;
          ocultos visualmente igual que .footer__newsletter label, pero
          accesibles por teclado y lector de pantalla. -->
-    <input type="checkbox" id="prod-camiseta" class="prod-check">
-    <input type="checkbox" id="prod-sudadera" class="prod-check">
-    <input type="checkbox" id="prod-tangas" class="prod-check">
-    <input type="checkbox" id="prod-top" class="prod-check">
-    <input type="checkbox" id="prod-conjunto" class="prod-check">
+    <input type="checkbox" id="prod-camiseta" class="prod-check" name="prendas" value="camiseta" form="form-encargo">
+    <input type="checkbox" id="prod-sudadera" class="prod-check" name="prendas" value="sudadera" form="form-encargo">
+    <input type="checkbox" id="prod-tangas" class="prod-check" name="prendas" value="tangas" form="form-encargo">
+    <input type="checkbox" id="prod-top" class="prod-check" name="prendas" value="top" form="form-encargo">
+    <input type="checkbox" id="prod-conjunto" class="prod-check" name="prendas" value="conjunto" form="form-encargo">
 
     <section class="intro" aria-label="Presentación de la tienda">
       <h1>Tienda</h1>
@@ -140,7 +141,7 @@
 
     <section class="formularios" aria-label="Formularios de tienda">
 
-      <form class="formulario" action="#" method="post">
+      <form class="formulario" id="form-encargo" action="#" method="post">
         <h2>Encargo personalizado</h2>
 
         <fieldset>
