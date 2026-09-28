@@ -51,15 +51,15 @@ body {
   display: block;
   width: auto;
   height: auto;
-  max-height: 25vh;
-  max-width: 70vw;
+  max-height: 35vh;
+  max-width: 85vw;
 }
 
 .hero__tangas {
   width: auto;
   height: auto;
-  max-height: 14vh;
-  max-width: 45vw;
+  max-height: 20vh;
+  max-width: 60vw;
 }
 
 .hero__eslogan {

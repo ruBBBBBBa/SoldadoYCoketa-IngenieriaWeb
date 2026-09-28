@@ -276,14 +276,14 @@ nth-child) — hay que completarlos antes de entregar.
 
 **Bloqueante para la entrega** (la rúbrica lo penaliza directamente):
 
-- [ ] **Revalidar HTML/CSS en validator.w3.org.** Sigue sin Java en esta
-      máquina (no hay `vnu.jar` local). Alternativa sin instalar nada:
-      subir los 3 HTML y los 5 CSS a mano en validator.w3.org y
-      jigsaw.w3.org/css-validator. Lo último validado es anterior a la
-      reestructuración.
-- [ ] **Completar los 3 `#TODO` de `variables.css`** (explicación de
-      `position`, `transition` y `nth-child`). Tal como están parecen
-      comentarios a medio hacer, justo lo que penaliza la rúbrica.
+- [x] **Revalidado HTML/CSS** (2026-09-28, tras los cambios de ese día)
+      contra los servicios online de validator.w3.org/nu y
+      jigsaw.w3.org/css-validator: 0 errores en los 3 HTML y en los 5
+      CSS evaluables. Repetirlo si se cambia algo antes de entregar.
+- [x] **Completados los 3 `#TODO` de `variables.css`** (2026-09-28):
+      explicación de `position`, `transition` y `nth-child`, más una de
+      `columns` (nuevo mosaico del portfolio). Conviene que los repases
+      con tus palabras, porque están escritos en primera persona.
 - [x] **`<h1>` en Inicio** (2026-09-28): el logo del hero va dentro de
       `<h1 class="hero__titulo">` (con `alt="Soldado y Coketa"`), con los
       márgenes del h1 a 0 en `inicio.css`. Se ve exactamente igual: logo
@@ -296,9 +296,8 @@ nth-child) — hay que completarlos antes de entregar.
       aparecen en los datos del formulario.
 - [x] **Favicon** (2026-09-28): `<link rel="icon">` con
       `logo-header.png` en las 3 páginas.
-- [ ] Revisar comentarios e indentación del código fuente final. Ojo a
-      `<nav class="footer__social">`: el `<ul>` de dentro está sin
-      indentar en las 3 páginas.
+- [x] Indentado el `<ul>` de `<nav class="footer__social">` en las 3
+      páginas (2026-09-28).
 
 **Contenido (depende de la marca/usuario):**
 
@@ -321,12 +320,10 @@ nth-child) — hay que completarlos antes de entregar.
 
 **Pedidos del equipo (2026-09-28):**
 
-- [ ] **Ampliar el logo de Soldado y Coketa y los tangas del hero de
-      Inicio.** Ahora mismo el tope es `max-height: 25vh` / `max-width:
-      70vw` (logo) y `14vh` / `45vw` (tangas) en `.hero__logo` y
-      `.hero__tangas` de `inicio.css`. Se suben esos valores, sin volver
-      a poner `height` fijo, porque eso deformaba el logo en móvil (ver
-      historial de arriba). Revisar en móvil vertical después.
+- [x] **Logo y tangas del hero más grandes** (2026-09-28): logo de
+      `25vh`/`70vw` a `35vh`/`85vw`, tangas de `14vh`/`45vw` a
+      `20vh`/`60vw`, sin `height` fijo. ⚠️ Falta comprobarlo en móvil
+      vertical.
 - [ ] **Sustituir los textos de las 3 páginas por textos escritos por la
       dueña de la marca**, para que sean originales y no suenen a IA:
       eslogan y manifiesto de Inicio, intro del Lookbook, intro y
@@ -335,33 +332,25 @@ nth-child) — hay que completarlos antes de entregar.
 - [ ] **Cambiar el email de contacto del footer** (ahora
       `hola@soldadoycoketa.com`, inventado) por el email real de la
       dueña, en las 3 páginas (`href="mailto:…"` y el texto del enlace).
-- [ ] **Copyright: escribir "SoldadoYCoketa" junto** en
-      `.footer__copy` de las 3 páginas (ahora pone "Soldado y Coketa").
-      Decidir si también cambia `.footer__brand` ("SOLDADO Y COKETA").
-- [ ] **Reorganizar las fotos del portfolio del Lookbook para que no
-      queden en una cuadrícula tan ordenada** (estilo collage/editorial:
-      tamaños distintos, fotos verticales más altas, alguna desplazada).
-      Ahora todas se recortan a 280×210 con `object-fit: cover`, lo que
-      además corta las 2 fotos verticales (01 y 02). Opción sencilla y
-      "de clase": `columns` (CSS multicolumna, tipo mosaico) respetando
-      la proporción real de cada foto, o flex con clases de tamaño
-      (`.foto--grande`, `.foto--alta`) en algunas. **Revisar que en
-      móvil quede bien**: en pantallas estrechas pasar a 1-2 columnas
-      dentro de la media query de 640px.
+- [x] **Copyright "SoldadoYCoketa"** en `.footer__copy` de las 3
+      páginas (2026-09-28). `.footer__brand` se queda como estaba
+      ("SOLDADO Y COKETA"): falta decidir si también cambia.
+- [x] **Portfolio del Lookbook en mosaico** (2026-09-28): `columns: 4
+      220px` con cada foto en su proporción real (las verticales ya no
+      salen recortadas), con 1 de cada 3 fotos desplazada 2rem hacia
+      abajo para romper la alineación. En móvil (≤640px) pasa a 2
+      columnas sin desplazamiento. ⚠️ Falta verlo en el navegador.
 
 **Opcional (suma puntos en "usar todos los elementos vistos en clase"):**
 
-- [ ] Decidir si merece la pena añadir un `<aside>` en alguna página
-      (el profesor lo explica con detalle en la práctica 4 y no lo hemos
-      usado todavía en ninguna página). Candidato natural: un `<aside>`
-      en Tienda con "envíos / cambios / cómo funciona el encargo".
-- [ ] Elementos vistos en clase que **no aparecen en ninguna página**:
-      `<ol>`, `<strong>`/`<em>`, `<hr>`, `<br>`, `colspan`/`rowspan`,
-      `<tfoot>`, `<optgroup>`. Ninguno es obligatorio, pero se
-      pueden meter con sentido sin forzar: `<ol>` para "cómo hacer un
-      encargo" (pasos), `<tfoot>` en la guía de tallas ("si estás entre
-      dos tallas, coge la mayor"), `<optgroup>` en el select de prenda,
-      `<strong>` en el manifiesto.
+- [x] **`<aside>` en Tienda** (2026-09-28): "Cómo hacer un encargo",
+      entre el catálogo y los formularios, con un `<ol>` de 3 pasos y un
+      `<strong>`. Estilo en `.como-funciona` de `tienda.css`. Es texto
+      provisional: entra en la lista de textos que reescribe la dueña.
+- [x] **`<tfoot>` + `colspan`** en la guía de tallas (2026-09-28): "Si
+      estás entre dos tallas, coge la mayor."
+- [ ] Siguen sin usarse: `<em>`, `<hr>`, `<br>`, `rowspan`,
+      `<optgroup>`. Ninguno es obligatorio.
 
 ---
 
@@ -375,13 +364,13 @@ nth-child) — hay que completarlos antes de entregar.
 | Selectores de tipo, clase e id | ✅ comentados como tales | `headerfooter.css` |
 | Formulario con ≥6 tipos de elemento | ✅ text, email, date, number, radio, checkbox, password, select, textarea, fieldset/legend | `tienda.html` |
 | Imágenes con width/max-width + alt | ✅ todas | las 3 |
-| Semántico HTML5 | ✅ header, nav, main, section, article, figure, footer · ❌ aside | |
+| Semántico HTML5 | ✅ header, nav, main, section, article, aside, figure, footer | |
 | Pseudo-clases | ✅ :hover, :focus-visible, :checked, :nth-child | |
 | Media query | ✅ `max-width: 640px` en los 4 CSS de página | |
 | Bloques diferenciados, márgenes, botones consistentes | ✅ | |
 | Footer con info útil | ✅ redes, newsletter, contacto, copyright | |
-| Validación W3C | ⚠️ pendiente de revalidar | §5 |
-| Código comentado | ⚠️ 3 `#TODO` en `variables.css` | §5 |
+| Validación W3C | ✅ 0 errores (28/09) | §5 |
+| Código comentado | ✅ | |
 | `<h1>` por página | ✅ (en Inicio, el logo del hero) | |
 | Página correcta sin `iag.css` | ✅ comprobado con Playwright (22-23/09) | |
 

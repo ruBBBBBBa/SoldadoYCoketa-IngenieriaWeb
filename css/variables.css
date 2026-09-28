@@ -17,15 +17,25 @@
       las diferentes dimensiones.
 
    - position: sticky/relative/absolute (header fijo, capas).
-      #TODO
+      sticky deja el header pegado arriba al hacer scroll sin sacarlo del flujo de la página.
+      absolute coloca un elemento respecto a su padre con position: relative, por ejemplo
+      la insignia en la esquina de cada tarjeta de la tienda.
+
    - clamp() para tipografía fluida.
       Esto lo he utilizado para los títulos, para que el tamaño de la letra vaya creciendo o 
       encogiendo según la pantalla pero que no se haga ni demasiado pequeño ni demasiado grande.
 
    - transition en combinación con :hover.
-      #TODO
+      Hace que el cambio de color o tamaño del :hover se vea suave en unas décimas de
+      segundo en vez de saltar de golpe. Si se quita, el :hover sigue funcionando igual.
+
    - tbody tr:nth-child(even) para filas alternas de tabla.
-      #TODO
+      Selecciona las filas pares de la tabla para pintarlas de otro color y que la guía de
+      tallas se lea mejor.
+
+   - columns (CSS multicolumna) en el portfolio del lookbook.
+      Reparte las fotos en columnas respetando la proporción de cada una, como un mosaico,
+      en vez de recortarlas todas al mismo tamaño.
 
    */
 

@@ -202,6 +202,27 @@ body {
   font-size: 0.85rem;
 }
 
+/* ---------- Cómo hacer un encargo (aside) ---------- */
+.como-funciona {
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--color-rosa);
+  line-height: 1.6;
+}
+
+.como-funciona h2 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+
+.como-funciona ol {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
 /* ---------- Formularios (encargo + acceso) ---------- */
 .formularios {
   display: flex;
@@ -338,5 +359,10 @@ legend {
   .producto {
     width: 100%;
     max-width: 300px;
+  }
+
+  .como-funciona {
+    margin: 0 1.5rem 1.5rem;
+    padding: 1.2rem;
   }
 }

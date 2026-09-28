@@ -3,8 +3,8 @@
    CSS base: vídeo grande de la colección (sin estampado, sin
    iag.css), portfolio de fotos reales, y guía de tallas.
    ============================================
-   Usa var(), clamp() y tbody tr:nth-child(even) para filas
-   alternas de tabla — CSS3 estándar, ver nota completa en
+   Usa var(), clamp(), columns (mosaico del portfolio) y
+   :nth-child — CSS3 estándar, ver nota completa en
    variables.css. */
 
 body {
@@ -72,22 +72,31 @@ body {
   margin: 0 0 2rem;
 }
 
+/* Mosaico tipo collage con CSS multicolumna: cada foto mantiene su
+   proporción real (las verticales salen más altas), así que las
+   columnas quedan desiguales en vez de una cuadrícula ordenada. */
 .portfolio__lista {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  columns: 4 220px;
+  column-gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.portfolio__lista li {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
 .portfolio__lista img {
-  width: 280px;
-  max-width: 42vw;
-  height: 210px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
   display: block;
+}
+
+/* Algunas fotos con un margen extra para romper la alineación */
+.portfolio__lista li:nth-child(3n+2) {
+  margin-top: 2rem;
 }
 
 /* ---------- Guía de tallas (tabla) ---------- */
@@ -141,15 +150,28 @@ tbody tr:nth-child(even) {
   background-color: var(--color-gris-oscuro);
 }
 
+tfoot td {
+  color: var(--color-rosa);
+  font-size: 0.85rem;
+}
+
 /* ---------- Media query: pantallas pequeñas (móvil) ---------- */
 @media (max-width: 640px) {
   .lookbook-video__player {
     max-height: 45vh;
   }
 
-  .portfolio__lista img {
-    width: 160px;
-    height: 200px;
+  .portfolio__lista {
+    columns: 2;
+    column-gap: 0.6rem;
+  }
+
+  .portfolio__lista li {
+    margin-bottom: 0.6rem;
+  }
+
+  .portfolio__lista li:nth-child(3n+2) {
+    margin-top: 0;
   }
 
   th, td {
