@@ -3,8 +3,8 @@
    CSS base (sin efectos de IA): la página se ve
    completa y ordenada aunque no se enlace iag.css.
    ============================================
-   Usa var() y clamp() para tipografía fluida — CSS3
-   estándar, ver nota completa en variables.css. */
+   Usa var() y clamp() para tipografía fluida
+*/
 
 /* Selector de ELEMENTO */
 body {
@@ -12,6 +12,116 @@ body {
   background-color: var(--color-negro);
   color: var(--color-blanco);
   font-family: var(--fuente-cuerpo);
+}
+
+/* ---------- Ventana emergente "Parental Advisory" ----------
+   .aviso es una capa fija a pantalla completa, semitransparente, por
+   encima de todo (incluida la barra de pole de iag.css, que usa
+   z-index 100), y .aviso__caja es la ventanita del aviso en el centro.
+   El desenfoque del fondo está en iag.css. Se cierra sin JavaScript
+   al marcar #aviso-check desde el botón "Me atrevo!!". */
+.aviso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Pseudo-clase :checked + combinador ~: al marcar el checkbox
+   desaparece la ventana */
+#aviso-check:checked ~ .aviso {
+  display: none;
+}
+
+/* Checkbox oculto visualmente (mismo patrón que .prod-check en la
+   tienda): sigue siendo accesible por teclado y lector de pantalla */
+.aviso-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.aviso__caja {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem 1.5rem;
+  background-color: var(--color-negro);
+  border: 2px solid var(--color-rosa);
+  text-align: center;
+}
+
+/* Tope de ancho y de alto a la vez (como el logo del hero) para que
+   quepa también con el móvil en horizontal */
+.aviso__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 260px;
+  max-height: 30vh;
+}
+
+.aviso__botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Los dos botones comparten tamaño y fuente; se distinguen por el
+   color: "Me atrevo!!" relleno en rosa, "Soy aburridx:(" solo con
+   borde */
+.aviso__boton {
+  display: inline-block;
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--color-rosa);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.aviso__boton--entrar {
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+}
+
+.aviso__boton--entrar:hover {
+  background-color: transparent;
+  color: var(--color-rosa);
+}
+
+.aviso__boton--salir {
+  background-color: transparent;
+  color: var(--color-rosa);
+}
+
+.aviso__boton--salir:hover {
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+}
+
+/* Foco de teclado: el foco real está en el checkbox oculto, así que
+   el contorno se dibuja en su label (el botón "Me atrevo!!") */
+#aviso-check:focus-visible ~ .aviso .aviso__boton--entrar,
+.aviso__boton--salir:focus-visible {
+  outline: 2px solid var(--color-blanco);
+  outline-offset: 3px;
 }
 
 /* ---------- Hero ---------- */
@@ -31,7 +141,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 2.5rem;
 }
 
 /* Tamaño en unidades relativas, no en píxeles: max-height (no height
@@ -51,15 +161,15 @@ body {
   display: block;
   width: auto;
   height: auto;
-  max-height: 35vh;
-  max-width: 85vw;
+  max-height: 26vh;
+  max-width: 90vw;
 }
 
 .hero__tangas {
   width: auto;
   height: auto;
-  max-height: 20vh;
-  max-width: 60vw;
+  max-height: 9vh;
+  max-width: 85vw;
 }
 
 .hero__eslogan {
@@ -205,7 +315,7 @@ body {
   padding: 0.4rem 1rem;
 }
 
-/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+/* ---------- Media query: para las pantallas pequeñas (móvil) ---------- */
 @media (max-width: 640px) {
   .hero {
     padding: 3rem 1rem;

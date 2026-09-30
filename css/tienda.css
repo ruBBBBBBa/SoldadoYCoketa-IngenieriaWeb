@@ -4,7 +4,8 @@
    personalizado (con selección de catálogo sin JavaScript,
    técnica "checkbox hack") + formulario de acceso de clientas.
    ============================================
-   Usa var(), clamp() y transition en :hover/:focus-visible —
+   Usa var(), clamp(), transition en :hover/:focus-visible y
+   :nth-child (filas alternas de la guía de tallas) —
    CSS3 estándar, ver nota completa en variables.css. */
 
 body {
@@ -123,12 +124,19 @@ body {
   letter-spacing: 0.04em;
   font-size: 0.85rem;
   padding: 0.6rem 1.2rem;
+  border: 2px solid var(--color-rosa);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .producto__anadir:hover {
   background-color: var(--color-rosa-palido);
+}
+
+/* "Quitar del pedido" solo se ve cuando la prenda está marcada
+   (ver las reglas :checked más abajo) */
+.producto__txt-quitar {
+  display: none;
 }
 
 /* ---------- "Añadir al pedido" sin JavaScript (checkbox hack) ----------
@@ -152,6 +160,33 @@ body {
 #prod-top:checked ~ .catalogo .producto[data-prod="top"],
 #prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] {
   border-color: var(--color-rosa);
+}
+
+/* Prenda marcada: el botón invierte sus colores (fondo negro, texto
+   rosa) y cambia "Añadir al pedido" por "Quitar del pedido" */
+#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"] .producto__anadir,
+#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"] .producto__anadir,
+#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"] .producto__anadir,
+#prod-top:checked ~ .catalogo .producto[data-prod="top"] .producto__anadir,
+#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] .producto__anadir {
+  background-color: var(--color-negro);
+  color: var(--color-rosa);
+}
+
+#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"] .producto__txt-anadir,
+#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"] .producto__txt-anadir,
+#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"] .producto__txt-anadir,
+#prod-top:checked ~ .catalogo .producto[data-prod="top"] .producto__txt-anadir,
+#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] .producto__txt-anadir {
+  display: none;
+}
+
+#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"] .producto__txt-quitar,
+#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"] .producto__txt-quitar,
+#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"] .producto__txt-quitar,
+#prod-top:checked ~ .catalogo .producto[data-prod="top"] .producto__txt-quitar,
+#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] .producto__txt-quitar {
+  display: inline;
 }
 
 #prod-camiseta:focus-visible ~ .catalogo .producto[data-prod="camiseta"],
@@ -221,6 +256,70 @@ body {
 .como-funciona ol {
   margin: 0;
   padding-left: 1.2rem;
+}
+
+/* ---------- Guía de tallas (tabla) ---------- */
+.tallas-section {
+  padding: 1rem 1.5rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tallas-section h2 {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+/* Selector de ELEMENTO: toda tabla del sitio comparte este estilo base */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  color: var(--color-gris);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid #333333;
+  padding: 0.65rem 0.9rem;
+  line-height: 1.5;
+}
+
+thead th {
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  font-family: var(--fuente-display);
+  letter-spacing: 0.03em;
+}
+
+/* Nombre de la talla (primera columna): centrado y con la fuente de
+   los títulos; la descripción va alineada a la izquierda para leerse
+   mejor al ser un texto largo */
+tbody th {
+  font-family: var(--fuente-display);
+  color: var(--color-rosa);
+  text-align: center;
+  white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-gris-oscuro);
+}
+
+tfoot td {
+  color: var(--color-rosa);
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 /* ---------- Formularios (encargo + acceso) ---------- */
@@ -364,5 +463,11 @@ legend {
   .como-funciona {
     margin: 0 1.5rem 1.5rem;
     padding: 1.2rem;
+  }
+
+  th,
+  td {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.8rem;
   }
 }

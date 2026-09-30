@@ -1,10 +1,10 @@
 /* ============================================
    LOOKBOOK — Soldado y Coketa
    CSS base: vídeo grande de la colección (sin estampado, sin
-   iag.css), portfolio de fotos reales, y guía de tallas.
+   iag.css), portfolio de fotos reales.
    ============================================
    Usa var(), clamp(), columns (mosaico del portfolio) y
-   :nth-child — CSS3 estándar, ver nota completa en
+   :nth-child(3n+2) — CSS3 estándar, ver nota completa en
    variables.css. */
 
 body {
@@ -99,62 +99,6 @@ body {
   margin-top: 2rem;
 }
 
-/* ---------- Guía de tallas (tabla) ---------- */
-.tallas-section {
-  padding: 2rem 1.5rem 4rem;
-  max-width: 720px;
-  margin: 0 auto;
-  /* Mismo motivo que .intro/.portfolio: tapa el vídeo fijo si está
-     activo iag.css cuando esta sección llega arriba del todo. */
-  background-color: var(--color-negro);
-}
-
-.tallas-section h2 {
-  font-family: var(--fuente-display);
-  color: var(--color-rosa);
-  text-align: center;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 1.5rem;
-}
-
-/* Selector de ELEMENTO: toda tabla del sitio comparte este estilo base */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-caption {
-  caption-side: top;
-  text-align: left;
-  color: var(--color-gris);
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-}
-
-th,
-td {
-  border: 1px solid #333333;
-  padding: 0.65rem 0.9rem;
-  text-align: center;
-}
-
-thead th {
-  background-color: var(--color-rosa);
-  color: var(--color-negro);
-  font-family: var(--fuente-display);
-  letter-spacing: 0.03em;
-}
-
-tbody tr:nth-child(even) {
-  background-color: var(--color-gris-oscuro);
-}
-
-tfoot td {
-  color: var(--color-rosa);
-  font-size: 0.85rem;
-}
-
 /* ---------- Media query: pantallas pequeñas (móvil) ---------- */
 @media (max-width: 640px) {
   .lookbook-video__player {
@@ -172,10 +116,5 @@ tfoot td {
 
   .portfolio__lista li:nth-child(3n+2) {
     margin-top: 0;
-  }
-
-  th, td {
-    padding: 0.45rem 0.5rem;
-    font-size: 0.8rem;
   }
 }

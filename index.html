@@ -3,26 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Para que al abrir la página en móvil u otro dispositivo que no sea ordenador use el ancho real del dispositivo y empiece sin zoom -->
   <title>Soldado y Coketa — Inicio</title>
   <meta name="description" content="Soldado y Coketa: marca de moda urbana. Descubre la colección, el lookbook y la tienda.">
+  
+  <!-- El icono que va en la parte de arriba de la pestaña -->
   <link rel="icon" href="assets/logo-header.png" type="image/png">
 
+  <!-- Para conectar las fuentes de google que usar en la página -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
+  <!-- Conexión con los .css para estilizar la página -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/headerfooter.css">
   <link rel="stylesheet" href="css/inicio.css">
   <!-- iag.css: capa OPCIONAL con animaciones y efectos generados con
-       apoyo de IA (no forma parte de lo evaluable de la asignatura).
-       La página se ve completa y correcta sin este fichero. -->
+       apoyo de IA. La página se ve completa y correcta sin este fichero. -->
   <link rel="stylesheet" href="css/iag.css">
 </head>
 <body>
 
+  <!-- Ventana emergente "Parental Advisory": tapa toda la página al
+       entrar y aparece cada vez que se carga Inicio. Sin JavaScript,
+       con la misma técnica que la tienda (checkbox hack): el botón
+       "Me atrevo!!" es el <label> del checkbox #aviso-check, y al
+       marcarlo, #aviso-check:checked ~ .aviso la oculta. El checkbox
+       está oculto visualmente pero lleva autofocus, así que con el
+       teclado basta con pulsar espacio para entrar. "Soy aburridx:("
+       es un enlace normal que saca de la web. -->
+  <input type="checkbox" id="aviso-check" class="aviso-check" autofocus>
+  <section class="aviso" aria-label="Aviso de contenido">
+    <div class="aviso__caja">
+      <img src="assets/LogoVentanaEmergente.png" alt="Parental Advisory: Cunty Content" class="aviso__img" width="1016" height="618">
+      <div class="aviso__botones">
+        <label for="aviso-check" class="aviso__boton aviso__boton--entrar">Me atrevo!!</label>
+        <a href="https://www.google.com" class="aviso__boton aviso__boton--salir">Soy aburridx:(</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Barra de pole: decorativa, se activa solo si se enlaza iag.css -->
   <div id="pole-strip" aria-hidden="true"></div>
 
+  <!-- Header con dos subdivisiones, una para un slogan giratorio y otra para elegir las diferentes pestañas de la web -->
   <header id="site-header">
     <div class="header__ticker">
       <div class="header__ticker-track">
@@ -66,7 +90,6 @@
         <img src="assets/tangas.png" alt="Colección de tangas Soldado y Coketa" class="hero__tangas">
       </div>
 
-      <p class="hero__eslogan">Sin filtros, sin permiso.</p>
       <a href="tienda.html" class="boton">Ir a la tienda</a>
     </section>
 
@@ -112,25 +135,23 @@
 
     <section class="manifiesto-section" aria-label="Manifiesto de marca">
       <div class="manifiesto">
-        <h2>Sin filtros, sin permiso</h2>
+        <h2>Locally hated, Globally glorified</h2>
         <p>
-          Soldado y Coketa nace de la calle y se viste de actitud.
-          Cada pieza está pensada para quien no pide permiso para
-          gustarse. Diseñamos en tiradas cortas, con estampados
-          propios y un punto de vista que no se parece a nada más
-          en el mercado. Descubre la colección completa en la
-          tienda o repasa todos los looks en el lookbook.
+          Soldado y Coketa nace de lo real (y de Anuel), prendas de estilo callejero y único, cómodas para un desfile o un diskotekeo, sin género ni edad.
+          Diseñamos con exclusividad, poca cantidad para que lo que se vista sea único. Encuentra la última colección completa en el lookbook, mua xao.
         </p>
         <ul class="manifiesto__valores">
-          <li>Diseño propio</li>
-          <li>Tiradas cortas</li>
-          <li>Hecho con actitud</li>
+          <li>Diseño único</li>
+          <li>Tiradas exclusivas</li>
+          <li>Sexy & Cunty</li>
         </ul>
       </div>
     </section>
 
   </main>
 
+  <!-- Footer de la página, en el que aparecen los links al instagram, lookbook y la tienda.
+  También hay un espacio para dejar el email y afiliarse a la marca-->
   <footer id="site-footer">
     <p class="footer__brand">SOLDADO Y COKETA</p>
 
@@ -149,7 +170,7 @@
     </form>
 
     <p class="footer__contacto">
-      Contacto: <a href="mailto:hola@soldadoycoketa.com">hola@soldadoycoketa.com</a> ·
+      Contacto: <a href="mailto:soldadoycoketa@gmail.com">soldadoycoketa@gmail.com</a> ·
       Bilbao, España
     </p>
 

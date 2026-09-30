@@ -39,6 +39,13 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- Ventana "Parental Advisory": fondo desenfocado ----------
+   La capa base (inicio.css) solo oscurece la página de detrás; aquí
+   además se desenfoca, para que el aviso destaque. */
+.aviso {
+  backdrop-filter: blur(8px);
+}
+
 /* ---------- Hero fijo en Inicio (efecto namedcollective.com) ----------
    El hero pasa de estar en el flujo normal (CSS base) a
    quedarse pegado a la pantalla mientras el resto de la
@@ -128,8 +135,8 @@ footer {
 /* ---------- Vídeo fijo en Lookbook (mismo efecto namedcollective.com
    que el hero de Inicio, pero sin estampado) ----------
    El vídeo pasa de estar en el flujo normal (CSS base) a quedarse
-   pegado a la pantalla mientras el resto de la página (intro, fotos,
-   guía de tallas) sube y lo va tapando. */
+   pegado a la pantalla mientras el resto de la página (intro y fotos)
+   sube y lo va tapando. */
 .lookbook-video-spacer {
   display: block;
   height: 100vh;
@@ -154,10 +161,25 @@ footer {
    encima del vídeo fijo, igual que .desfile/.manifiesto-section en
    Inicio por encima del hero fijo */
 .intro,
-.portfolio,
-.tallas-section {
+.portfolio {
   position: relative;
   z-index: 2;
+}
+
+/* El collage no tapa el vídeo: sin fondo, las fotos se ven flotando
+   encima del vídeo fijo. El título lleva sombra para leerse sobre
+   cualquier fotograma. Sin iag.css el vídeo no es fijo y el portfolio
+   vuelve a su fondo negro de lookbook.css. */
+.portfolio {
+  background-color: transparent;
+}
+
+.portfolio h2 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.portfolio__lista img {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
 /* ---------- Desfile de Inicio: carrusel animado ----------

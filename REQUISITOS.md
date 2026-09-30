@@ -28,8 +28,9 @@ La solución de compromiso ya aplicada: una capa base "de clase" (evaluable)
 
 ```
 index.html          Inicio (hero + desfile de looks + manifiesto)
-lookbook.html        Lookbook (vídeo + portfolio de fotos reales + tallas)
-tienda.html           Tienda (catálogo en tarjetas + 2 formularios)
+lookbook.html        Lookbook (vídeo + portfolio de fotos reales)
+tienda.html           Tienda (catálogo, cómo hacer un encargo, guía de
+                      tallas y 2 formularios)
 css/
   variables.css       Colores, tipografías, reset box-sizing (común)
   headerfooter.css     Header + footer, EN UN SOLO FICHERO (común)
@@ -308,13 +309,18 @@ nth-child) — hay que completarlos antes de entregar.
       póster con controles que no reproducen nada. Si el vídeo no llega
       a tiempo, mejor quitar `controls` o sustituir el `<video>` por la
       foto de portada.
-- [ ] **Catálogo de Tienda con productos reales**: de momento son 5
+- [ ] **Catálogo de Tienda con los diseños reales**: de momento son 5
       placeholders (Camiseta Actitud, Sudadera Calle, Pack Tangas, Top
       Noche, Conjunto Coketa) con fotos reutilizadas de `modelo-4..8.png`
-      (looks de desfile, no fotos de producto real): sustituir nombres,
-      precios, descripciones y fotos cuando estén disponibles.
-- [ ] Reescribir el texto de la tabla de "Guía de tallas" en lookbook con
-      tono "divertido" (lo hace el usuario).
+      (looks de desfile, no fotos de producto real). **Falta que el
+      usuario pase la lista de diseños** (nombre, precio, descripción,
+      foto y talla/s de cada uno). Al cambiarlos hay que tocar, por cada
+      prenda: la tarjeta del catálogo, su checkbox `#prod-x` (`value`), su
+      línea en `.lista-pedido` y los 4 bloques de reglas `:checked` de
+      `tienda.css` (borde, botón, textos, línea del pedido). Si cambia el
+      número de prendas, añadir o quitar un selector en cada bloque.
+- [x] Texto de la "Guía de tallas" con tono divertido (2026-09-29, hecho
+      por el usuario; ahora se rehace entera, ver pedidos del 29/09).
 - [ ] Decidir si el pole-strip debe notarse *menos* agresivo (quedó
       pendiente de validar con la creadora de la marca).
 
@@ -324,14 +330,29 @@ nth-child) — hay que completarlos antes de entregar.
       `25vh`/`70vw` a `35vh`/`85vw`, tangas de `14vh`/`45vw` a
       `20vh`/`60vw`, sin `height` fijo. ⚠️ Falta comprobarlo en móvil
       vertical.
-- [ ] **Sustituir los textos de las 3 páginas por textos escritos por la
-      dueña de la marca**, para que sean originales y no suenen a IA:
-      eslogan y manifiesto de Inicio, intro del Lookbook, intro y
-      descripciones de productos de Tienda, textos de los formularios.
-      Conviene pasárselos en una lista para que los reescriba de una vez.
-- [ ] **Cambiar el email de contacto del footer** (ahora
-      `hola@soldadoycoketa.com`, inventado) por el email real de la
-      dueña, en las 3 páginas (`href="mailto:…"` y el texto del enlace).
+- [~] **Textos de la dueña de la marca** (2026-09-29, en curso):
+      - ✅ Inicio: manifiesto nuevo y valores ("Diseño único", "Tiradas
+        exclusivas", "Sexy & Cunty"). Se quitó el eslogan del hero ("Sin
+        filtros, sin permiso"), que sigue como título del manifiesto.
+      - ✅ Lookbook: intro nueva.
+      - ✅ Comentarios nuevos en el `<head>` y el header de `index.html`.
+      - Tienda (decidido 2026-09-29):
+        - ✅ El `<aside>` "Cómo hacer un encargo" y los textos de los
+          formularios **se quedan como están**.
+        - [ ] Intro de la Tienda: se cambia, pero el texto está por
+          pensar.
+        - [ ] **Productos sin descripción**: cada tarjeta solo lleva
+          nombre y precio (quitar el `<p>` de descripción de los 5
+          `<article class="producto">`; la regla `.producto p` de
+          `tienda.css` sigue haciendo falta para el precio).
+        - [ ] **Insignias rosas** (`.producto__badge`: "Best seller",
+          "Nuevo", "Bajo pedido", "Últimas unidades"): hay que pensar
+          qué ponen, o si se quitan.
+      - Limpieza pendiente: la regla `.hero__eslogan` de `inicio.css` e
+        `iag.css` ya no tiene uso desde que se quitó el eslogan.
+- [x] **Email de contacto real** `soldadoycoketa@gmail.com` en el footer
+      de las 3 páginas (2026-09-29; el usuario lo cambió en Inicio y se
+      aplicó igual en Lookbook y Tienda).
 - [x] **Copyright "SoldadoYCoketa"** en `.footer__copy` de las 3
       páginas (2026-09-28). `.footer__brand` se queda como estaba
       ("SOLDADO Y COKETA"): falta decidir si también cambia.
@@ -340,6 +361,174 @@ nth-child) — hay que completarlos antes de entregar.
       salen recortadas), con 1 de cada 3 fotos desplazada 2rem hacia
       abajo para romper la alineación. En móvil (≤640px) pasa a 2
       columnas sin desplazamiento. ⚠️ Falta verlo en el navegador.
+- [x] **Botón "Añadir al pedido" ↔ "Quitar del pedido"** con colores
+      invertidos al marcar la prenda (2026-09-28, ver §6).
+
+**Pedidos del equipo (2026-09-29):**
+
+- [x] **Tangas del hero más grandes** (2026-09-30): `.hero__tangas`
+      de `20vh`/`60vw` a `30vh`/`80vw`. Comprobado: 381×270 px en
+      escritorio y 311×220 en móvil vertical, sin scroll horizontal y
+      con el botón "Ir a la tienda" dentro de la pantalla.
+- [x] **Logo y tangas un poco más grandes y más juntos** (2026-09-30):
+      el hueco grande entre ellos venía de los **bordes transparentes de
+      los PNG** (en `tangas.png` solo 170 de 707 px de alto eran
+      tangas). Se recortaron las dos imágenes a su contenido, dejando
+      10 px de margen: `tangas.png` pasa a 877×190 y
+      `logo-soldado-coketa.png` a 1355×640. Los originales están en el
+      historial de git. Como ahora el tamaño en CSS es el tamaño visible,
+      los topes cambian: logo `26vh`/`90vw`, tangas `9vh`/`85vw`, y el
+      `gap` de `.hero__lockup` pasa a `2.5rem`. Resultado en escritorio:
+      logo 495×234 y tangas 373×81 (antes, a la vista, unos 445×197 y
+      327×65), con unos 40 px entre ellos en vez de unos 160. Visto
+      también en móvil vertical y horizontal, sin scroll lateral.
+- [x] **Collage del Lookbook sobre el vídeo, sin fondo negro**
+      (2026-09-30, hecho en `iag.css`: `.portfolio` con fondo
+      transparente, sombra en el título "La colección" y en las fotos).
+      Comprobado en escritorio y móvil, sin scroll lateral. Mientras no
+      llegue el vídeo, detrás se ve el póster (`foto-01.jpg`), que
+      también es la primera foto del collage: saldrá repetida hasta
+      entonces. Una de las fotos del collage (4.ª columna en escritorio,
+      la del bosque) se ve **girada 90°**: revisarlo al elegir las fotos
+      nuevas. Pedido original: Que las
+      fotos del portfolio se vean flotando encima del vídeo fijo. Hay que
+      quitar el `background-color` negro de `.portfolio` en
+      `lookbook.css` (está ahí justo para tapar el vídeo con `iag.css`).
+      Ojo: **sin `iag.css`** el vídeo no es fijo, así que en la capa base
+      el portfolio seguirá sobre fondo negro, y eso está bien. Revisar
+      que el título "La colección" se lea sobre el vídeo (sombra de
+      texto o una franja detrás) y que el portfolio sin fondo no deje
+      ver el vídeo en huecos raros del resto de la página. Mientras no
+      llegue el vídeo real, lo que se verá detrás es el póster
+      (`foto-01.jpg`).
+- [x] **Guía de tallas movida del Lookbook a la Tienda** (2026-09-30, hecho;
+      queda debajo de "Cómo hacer un encargo") y cambiar su
+      contenido: ya no son medidas en cm sino 3 tallas "con actitud".
+      Texto de la dueña, tal cual:
+
+      > **(XS) XtraSlut**
+      > Para lxs que queréis mostrar el precioso cuerpo con el que Dios
+      > os trajo al mundo, sexys y atrevidxs
+      >
+      > **(M) Medium Slut**
+      > Not to innocent and not too much, para lxs que quieren ser más
+      > misteriosos y no perder la picardía
+      >
+      > **(XL) Xtra Large Slut**
+      > Para lxs que estáis más feeling yourself con el EXTREME Oversize,
+      > divertido, extra cómodo y extracunty
+
+      Cómo quedó: tabla de 2 columnas (Talla | Para quién), con el nombre
+      en la primera columna con `<br>` ("XS<br>XtraSlut"). Se mantienen
+      el `caption` y el `tfoot` del usuario. Los estilos pasaron de
+      `lookbook.css` a `tienda.css`, se quitó `.tallas-section` de
+      `iag.css`, y los radios del formulario son ahora XS, M (marcada) y
+      XL. Validado en W3C y visto en escritorio y móvil. ⚠️ El texto va
+      tal cual lo pasó la dueña: "Not **to** innocent" probablemente
+      debería ser "too". El `caption` dice "excepto las de tienda", y
+      ahora la tabla está en la tienda: revisar si se entiende.
+
+      Notas que se tomaron para hacerlo:
+      - Mantenerla como `<table>` (suma puntos: `thead`/`tbody`/`tfoot`,
+        `colspan`, `caption`) con 2 columnas: Talla | Para quién. Sin la
+        columna de cadera en cm.
+      - Mover también sus estilos (`table`, `caption`, `th/td`,
+        `thead th`, `tbody tr:nth-child(even)`, `tfoot td`,
+        `.tallas-section`) de `lookbook.css` a `tienda.css`.
+      - Quitar `.tallas-section` de `iag.css` (lista del vídeo fijo) si
+        ya no está en Lookbook.
+      - Sitio natural en Tienda: después del catálogo o junto al
+        `<aside>`.
+      - **Las tallas del formulario de encargo** (radios XS/S/M/L/XL)
+        pasan a ser solo XS, M y XL para que cuadren con la guía.
+      - Decidir si se mantienen el `caption` y el `tfoot` que escribió el
+        usuario ("estas tallas no son reales…", "coge con la que más
+        muestres ;)").
+      - Actualizar los enlaces y el texto que mencionen "tallas" en el
+        Lookbook (descripción `<meta>`, comentarios).
+- [ ] **Otras fotos y otro orden en el collage del Lookbook.** El
+      usuario elige cuáles y en qué orden. Hoy son las 22 de
+      `assets/lookbook/foto-01..22.jpg` en orden numérico. Al cambiarlas,
+      el `width`/`height` de cada `<img>` debe ser la proporción real de
+      esa foto (el mosaico respeta la proporción de cada una), y hay que
+      actualizar los `alt`. Fotos nuevas: redimensionarlas antes (las
+      actuales van a 1600 px de lado largo).
+- [x] **Ventana emergente "Parental Advisory"** (2026-09-30, hecho en
+      Inicio, solo HTML y CSS). Aparece **cada vez que se carga
+      `index.html`**, tapando toda la página. Imagen:
+      `assets/LogoVentanaEmergente.png`, recortada del A4 original a
+      1016×618. El original quedó fuera del repo, en
+      `../LogoVentanaEmergente-original.png`.
+      - **"Me atrevo!!"** es el `<label>` de `#aviso-check` (checkbox
+        oculto con `autofocus`), y `#aviso-check:checked ~ .aviso {
+        display: none; }` la cierra. Es el mismo "checkbox hack" de la
+        tienda y suma `autofocus`, visto en clase y sin usar hasta ahora.
+      - **"Soy aburridx:("** es un enlace a `https://www.google.com`.
+        Cambiar el destino si se prefiere otro.
+      - Estilos en `inicio.css` (`.aviso…`), con `z-index: 1000` para
+        quedar por encima de la barra de pole.
+      - Comprobado con Playwright: se cierra con ratón y con teclado
+        (espacio nada más entrar, Tab pasa a "Soy aburridx:("), tapa
+        header y pole, y cabe en escritorio, móvil vertical y móvil
+        horizontal. Validado en W3C.
+      - Limitaciones sin JavaScript: vuelve a salir cada vez que se
+        vuelve a Inicio (también desde el menú), y con Tab se puede
+        llegar a los enlaces de detrás aunque no se vean. Solo en
+        Lookbook y Tienda no sale; para ponerla también ahí, copiar el
+        bloque del `<body>` y las reglas `.aviso…` a sus CSS.
+
+      Pedido original:
+      una capa a pantalla completa con la imagen de Parental Advisory
+      (la tiene el usuario; guardarla en `assets/`) y **dos botones**.
+      Por decidir:
+      - **Qué dicen y qué hacen los dos botones.** Por ejemplo: "Entrar"
+        cierra el aviso, y "Salir" lleva fuera de la web.
+      - **Si sale solo en Inicio o en las 3 páginas**, y si sale en cada
+        visita o solo la primera vez.
+
+      Cómo hacerlo según la respuesta:
+      - **Solo con HTML y CSS** (evaluable, sin JavaScript): capa fija
+        encima de todo que se cierra con el mismo "checkbox hack" de la
+        tienda (el botón "Entrar" es un `<label>` de un checkbox oculto,
+        y `:checked ~ .aviso { display: none; }`). El botón de salir es
+        un enlace normal. Limitación: el aviso vuelve a salir cada vez
+        que se carga la página, también al navegar entre páginas, así
+        que conviene ponerlo **solo en Inicio**.
+      - **Que salga solo la primera vez**: necesita JavaScript +
+        `localStorage` para recordar que ya se aceptó (igual que el modo
+        "clienta"), en un `.js` aparte.
+      - Accesibilidad: el aviso tiene que poder cerrarse con teclado, y
+        mientras está abierto no debería poder tabularse a la página de
+        detrás.
+- [ ] **Cambiar los diseños de la Tienda** por los reales: ver
+      "Catálogo de Tienda con los diseños reales" arriba. Pendiente de
+      que el usuario pase la lista.
+
+**Extra (pedido 2026-09-28, no entra en la rúbrica):**
+
+- [ ] **Tienda en modo "clienta" tras el acceso.** Al entrar por "Acceso
+      clientas", la página de la tienda cambia:
+      - Un saludo arriba del todo según el email con el que se ha
+        entrado (p. ej. "Hola, maria@…").
+      - El formulario de encargo ya no pide "Nombre completo" ni
+        "Email": se dan por conocidos por la sesión y se envían solos,
+        sin que se vean en el formulario.
+
+      ⚠️ Esto no se puede hacer solo con HTML y CSS, porque la página
+      tiene que recordar quién ha entrado. Opciones, de más sencilla a
+      más completa:
+      1. **JavaScript + `localStorage`** (sin servidor, vale para GitHub
+         Pages): al enviar el acceso se guarda el email; la tienda lo lee,
+         pinta el saludo y quita esos campos del formulario. No hay login
+         de verdad (no se comprueba la contraseña), es solo una simulación.
+         Iría en un `.js` aparte, como `iag.css`, para no mezclarlo con la
+         parte evaluable.
+      2. **Backend real** (servidor, base de datos, sesiones): login de
+         verdad, pero se sale del alcance de la asignatura y de GitHub
+         Pages.
+
+      Sin JavaScript activo, la tienda tiene que seguir funcionando igual
+      que ahora (con los campos de nombre y email visibles).
 
 **Opcional (suma puntos en "usar todos los elementos vistos en clase"):**
 
@@ -378,10 +567,11 @@ nth-child) — hay que completarlos antes de entregar.
 
 Mejoras encontradas en la revisión del 2026-09-28, de más a menos útil:
 
-- **El botón "Añadir al pedido" no cambia al marcarlo**: solo cambia el
-  borde de la tarjeta, que en móvil apenas se ve. Con la misma técnica
-  (`#prod-x:checked ~ .catalogo .producto[data-prod=x] .producto__anadir`)
-  se puede invertir el color del botón, igual que `.boton:hover`.
+- ✅ **Botón "Añadir al pedido" ↔ "Quitar del pedido"** (2026-09-28):
+  al marcar una prenda, el botón invierte sus colores (fondo negro, texto
+  rosa) y cambia de texto, sin JavaScript. El label lleva los dos textos
+  en `<span>` y `:checked ~ …` muestra solo el que toca. Comprobado con
+  Playwright en escritorio y móvil, y validado en W3C.
 - **Los 5 "Añadir al pedido" suenan igual en lector de pantalla** (mismo
   texto para 5 checkboxes). Añadir el nombre de la prenda en un `<span>`
   oculto visualmente, p. ej. "Añadir al pedido <span>Camiseta
@@ -411,9 +601,14 @@ Mejoras encontradas en la revisión del 2026-09-28, de más a menos útil:
 - ¿Llega el vídeo del lookbook antes de la entrega? Si no, decidir qué
   hacer con el hueco (ver §5).
 - ¿Hay fotos/precios reales para la tienda o se entrega con los
-  placeholders?
+  placeholders? (29/09: se cambian; falta la lista de diseños.)
+- Intro de la Tienda y texto de las insignias rosas: por pensar.
+- Aviso "Parental Advisory": ¿"Soy aburridx:(" debe llevar a Google
+  o a otro sitio? ¿Solo en Inicio (como ahora) o en las 3 páginas?
+- Qué fotos del Lookbook y en qué orden.
 
 
-*Última actualización: 2026-09-28. Revisión completa de las 3 páginas y
+*Última actualización: 2026-09-30 (tangas más grandes y guía de tallas en
+Tienda). 2026-09-29: Textos de la dueña (en curso) y pedidos del 29/09 en §5. Antes, 2026-09-28: revisión completa de las 3 páginas y
 los 6 CSS: estado frente a la rúbrica (§5b), pendientes (§5) y mejoras
 (§6).*

@@ -88,7 +88,7 @@
             <h3>Camiseta Actitud</h3>
             <p>Algodón orgánico, estampado frontal.</p>
             <p class="producto__precio">24,90&nbsp;€</p>
-            <label for="prod-camiseta" class="producto__anadir">Añadir al pedido</label>
+            <label for="prod-camiseta" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
           </article>
         </li>
 
@@ -99,7 +99,7 @@
             <h3>Sudadera Calle</h3>
             <p>Capucha, interior perchado.</p>
             <p class="producto__precio">44,90&nbsp;€</p>
-            <label for="prod-sudadera" class="producto__anadir">Añadir al pedido</label>
+            <label for="prod-sudadera" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
           </article>
         </li>
 
@@ -110,7 +110,7 @@
             <h3>Pack Tangas</h3>
             <p>Set de 3 unidades, algodón elástico.</p>
             <p class="producto__precio">19,90&nbsp;€</p>
-            <label for="prod-tangas" class="producto__anadir">Añadir al pedido</label>
+            <label for="prod-tangas" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
           </article>
         </li>
 
@@ -121,7 +121,7 @@
             <h3>Top Noche</h3>
             <p>Edición corta, tejido satinado.</p>
             <p class="producto__precio">29,90&nbsp;€</p>
-            <label for="prod-top" class="producto__anadir">Añadir al pedido</label>
+            <label for="prod-top" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
           </article>
         </li>
 
@@ -132,7 +132,7 @@
             <h3>Conjunto Coketa</h3>
             <p>Top y falda a juego, estampado exclusivo.</p>
             <p class="producto__precio">54,90&nbsp;€</p>
-            <label for="prod-conjunto" class="producto__anadir">Añadir al pedido</label>
+            <label for="prod-conjunto" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
           </article>
         </li>
 
@@ -150,6 +150,40 @@
         <li>Te escribimos por email para confirmar el pedido y el pago.</li>
       </ol>
     </aside>
+
+    <!-- Guía de tallas: tabla con 3 tallas (las mismas que se pueden
+         elegir en el formulario de encargo de más abajo) -->
+    <section class="tallas-section" aria-label="Guía de tallas">
+      <h2>Guía de tallas</h2>
+      <table>
+        <caption>(estas tallas no son reales, ya que cada prenda es hecha y confeccionada a mano, excepto las de tienda, ya que son talla genérica del diseño)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Talla</th>
+            <th scope="col">Para quién</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">XS<br>XtraSlut</th>
+            <td>Para lxs que queréis mostrar el precioso cuerpo con el que Dios os trajo al mundo, sexys y atrevidxs</td>
+          </tr>
+          <tr>
+            <th scope="row">M<br>Medium Slut</th>
+            <td>Not to innocent and not too much, para lxs que quieren ser más misteriosos y no perder la picardía</td>
+          </tr>
+          <tr>
+            <th scope="row">XL<br>Xtra Large Slut</th>
+            <td>Para lxs que estáis más feeling yourself con el EXTREME Oversize, divertido, extra cómodo y extracunty</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Si estás entre dos tallas, coge con la que más muestres ;)</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
 
     <section class="formularios" aria-label="Formularios de tienda">
 
@@ -210,16 +244,8 @@
               <label for="talla-xs">XS</label>
             </div>
             <div class="opcion">
-              <input type="radio" id="talla-s" name="talla" value="S">
-              <label for="talla-s">S</label>
-            </div>
-            <div class="opcion">
               <input type="radio" id="talla-m" name="talla" value="M" checked>
               <label for="talla-m">M</label>
-            </div>
-            <div class="opcion">
-              <input type="radio" id="talla-l" name="talla" value="L">
-              <label for="talla-l">L</label>
             </div>
             <div class="opcion">
               <input type="radio" id="talla-xl" name="talla" value="XL">
@@ -287,7 +313,7 @@
     </form>
 
     <p class="footer__contacto">
-      Contacto: <a href="mailto:hola@soldadoycoketa.com">hola@soldadoycoketa.com</a> ·
+      Contacto: <a href="mailto:soldadoycoketa@gmail.com">soldadoycoketa@gmail.com</a> ·
       Bilbao, España
     </p>
 
