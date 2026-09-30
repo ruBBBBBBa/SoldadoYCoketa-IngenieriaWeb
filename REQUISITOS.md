@@ -323,7 +323,16 @@ nth-child) — hay que completarlos antes de entregar.
       errores y 0 avisos. Solo salen mensajes "Info" por la barra final
       de las etiquetas vacías (`<img … />`, `<br />`), que pone Prettier
       al formatear. No son errores y no afectan. El CSS también está
-      validado. Las fotos, en `assets/tienda/<nombre>.png`, están
+      validado.
+      **Móvil (2026-09-30)**: en una sola columna, las 10 prendas
+      ocupaban unos 4000 px de scroll y las tarjetas salían con anchos
+      distintos. Ahora, a 640 px o menos, el catálogo va en 2 columnas
+      (cada `<li>` mide `calc(50% - 0.375rem)`), las tarjetas son
+      flex en columna con el botón abajo (`margin-top: auto`) y la foto,
+      el texto, las etiquetas y el botón son más pequeños. El catálogo
+      pasa a medir unos 1350 px. Probado en iPhone 13, iPhone SE (320
+      px) y Pixel 7: todas las tarjetas del mismo ancho, botones dentro
+      y sin scroll lateral. Las fotos, en `assets/tienda/<nombre>.png`, están
       recortadas a 480 px de ancho y los nombres de fichero no llevan
       espacios ni tildes (1,2 MB en total, antes 8 MB). Los A4
       originales quedaron fuera del repo, en `../assets-originales/tienda/`.
