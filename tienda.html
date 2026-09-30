@@ -1,54 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soldado y Coketa — Tienda</title>
-  <meta name="description" content="Tienda de Soldado y Coketa: catálogo de productos, encargo personalizado y acceso de clientas.">
-  <link rel="icon" href="assets/logo-header.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soldado y Coketa — Tienda</title>
+    <meta
+      name="description"
+      content="Tienda de Soldado y Coketa: catálogo de productos, encargo personalizado y acceso de clientas."
+    />
+    <link rel="icon" href="assets/logo-header.png" type="image/png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/headerfooter.css">
-  <link rel="stylesheet" href="css/tienda.css">
-  <!-- iag.css: capa OPCIONAL, no evaluable. -->
-  <link rel="stylesheet" href="css/iag.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/headerfooter.css" />
+    <link rel="stylesheet" href="css/tienda.css" />
+    <!-- iag.css: capa OPCIONAL, no evaluable. -->
+    <link rel="stylesheet" href="css/iag.css" />
+  </head>
+  <body>
+    <div id="pole-strip" aria-hidden="true"></div>
 
-  <div id="pole-strip" aria-hidden="true"></div>
-
-  <header id="site-header">
-    <div class="header__ticker">
-      <div class="header__ticker-track">
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
+    <header id="site-header">
+      <div class="header__ticker">
+        <div class="header__ticker-track">
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+        </div>
       </div>
-    </div>
 
-    <nav class="header__nav-row" aria-label="Navegación principal">
-      <a href="index.html" class="header__logo-link">
-        <img src="assets/logo-header.png" alt="Soldado y Coketa" class="header__logo-img">
-      </a>
-      <ul class="header__menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="lookbook.html">Lookbook</a></li>
-        <li><a href="tienda.html" aria-current="page">Tienda</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav class="header__nav-row" aria-label="Navegación principal">
+        <a href="index.html" class="header__logo-link">
+          <img
+            src="assets/logo-header.png"
+            alt="Soldado y Coketa"
+            class="header__logo-img"
+          />
+        </a>
+        <ul class="header__menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="lookbook.html">Lookbook</a></li>
+          <li><a href="tienda.html" aria-current="page">Tienda</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
-
-    <!-- Interruptor "añadir al pedido" sin JavaScript: técnica CSS pura
+    <main>
+      <!-- Interruptor "añadir al pedido" sin JavaScript: técnica CSS pura
          (checkbox hack) con :checked + combinador de hermanos general
          (~). Van aquí, como hijos directos de <main>, porque el
          combinador ~ solo alcanza a hermanos: desde aquí puede llegar
@@ -57,268 +73,599 @@
          desmarcan con la etiqueta "Añadir al pedido" de cada tarjeta;
          ocultos visualmente igual que .footer__newsletter label, pero
          accesibles por teclado y lector de pantalla. -->
-    <input type="checkbox" id="prod-camiseta" class="prod-check" name="prendas" value="camiseta" form="form-encargo">
-    <input type="checkbox" id="prod-sudadera" class="prod-check" name="prendas" value="sudadera" form="form-encargo">
-    <input type="checkbox" id="prod-tangas" class="prod-check" name="prendas" value="tangas" form="form-encargo">
-    <input type="checkbox" id="prod-top" class="prod-check" name="prendas" value="top" form="form-encargo">
-    <input type="checkbox" id="prod-conjunto" class="prod-check" name="prendas" value="conjunto" form="form-encargo">
+      <input
+        type="checkbox"
+        id="prod-advertisements"
+        class="prod-check"
+        name="prendas"
+        value="advertisements"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-exmaquina"
+        class="prod-check"
+        name="prendas"
+        value="exmaquina"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-for-bigboys"
+        class="prod-check"
+        name="prendas"
+        value="for-bigboys"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-kates-on-crack"
+        class="prod-check"
+        name="prendas"
+        value="kates-on-crack"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-most-hated"
+        class="prod-check"
+        name="prendas"
+        value="most-hated"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-msga"
+        class="prod-check"
+        name="prendas"
+        value="msga"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-ojos-de-angel"
+        class="prod-check"
+        name="prendas"
+        value="ojos-de-angel"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-playgirl"
+        class="prod-check"
+        name="prendas"
+        value="playgirl"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-reveal"
+        class="prod-check"
+        name="prendas"
+        value="reveal"
+        form="form-encargo"
+      />
+      <input
+        type="checkbox"
+        id="prod-xpert"
+        class="prod-check"
+        name="prendas"
+        value="xpert"
+        form="form-encargo"
+      />
 
-    <section class="intro" aria-label="Presentación de la tienda">
-      <h1>Tienda</h1>
-      <p>
-        Compra online no disponible todavía: de momento gestionamos
-        cada pedido de forma personalizada. Consulta el catálogo y
-        rellena el formulario de encargo para reservar tu talla.
-      </p>
-    </section>
+      <section class="intro" aria-label="Presentación de la tienda">
+        <h1>Tienda</h1>
+        <p>
+          Compra online no disponible todavía: de momento gestionamos cada
+          pedido de forma personalizada. Consulta el catálogo y rellena el
+          formulario de encargo para reservar tu talla.
+        </p>
+      </section>
 
-    <!-- Catálogo placeholder: nombres/precios/fotos de relleno, fáciles
-         de sustituir por los productos reales de la marca. Las fotos
-         reutilizan temporalmente modelo-N.png (fondo transparente de la
-         colección de desfile) — sustituir por foto real de cada
-         producto en cuanto esté disponible. -->
-    <section class="catalogo" aria-label="Catálogo de productos">
-      <h2>Catálogo</h2>
-      <ul class="catalogo__lista">
+      <!-- Catálogo: un <article> por diseño, con foto (delante y
+         detrás), nombre y precio. Cada prenda tiene su checkbox
+         #prod-x al principio de <main> y su línea en la lista del
+         pedido (ver "checkbox hack" en tienda.css). -->
+      <section class="catalogo" aria-label="Catálogo de productos">
+        <h2>Catálogo</h2>
+        <ul class="catalogo__lista">
+          <li>
+            <article class="producto" data-prod="advertisements">
+              <div class="producto__badges">
+                <span class="producto__badge">Explicit</span>
+              </div>
+              <img
+                src="assets/tienda/advertisements.png"
+                alt="Camiseta ADVERTISEMENTS, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>ADVERTISEMENTS</h3>
+              <p class="producto__precio">25,99&nbsp;€</p>
+              <label for="prod-advertisements" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-        <li>
-          <article class="producto" data-prod="camiseta">
-            <span class="producto__badge">Best seller</span>
-            <img src="assets/modelo-4.png" alt="Camiseta Actitud" width="220" height="300">
-            <h3>Camiseta Actitud</h3>
-            <p>Algodón orgánico, estampado frontal.</p>
-            <p class="producto__precio">24,90&nbsp;€</p>
-            <label for="prod-camiseta" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
-          </article>
-        </li>
+          <li>
+            <article class="producto" data-prod="exmaquina">
+              <div class="producto__badges">
+                <span class="producto__badge">Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/exmaquina.png"
+                alt="Top de tirantes EXMAQUINA, vista delantera y trasera"
+                width="480"
+                height="403"
+              />
+              <h3>EXMAQUINA</h3>
+              <p class="producto__precio">23,99&nbsp;€</p>
+              <label for="prod-exmaquina" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-        <li>
-          <article class="producto" data-prod="sudadera">
-            <span class="producto__badge">Nuevo</span>
-            <img src="assets/modelo-5.png" alt="Sudadera Calle" width="220" height="300">
-            <h3>Sudadera Calle</h3>
-            <p>Capucha, interior perchado.</p>
-            <p class="producto__precio">44,90&nbsp;€</p>
-            <label for="prod-sudadera" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
-          </article>
-        </li>
+          <li>
+            <article class="producto" data-prod="for-bigboys">
+              <div class="producto__badges">
+                <span class="producto__badge">Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/for-bigboys.png"
+                alt="Camiseta FOR BIGBOYS, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>FOR BIGBOYS</h3>
+              <p class="producto__precio">23,99&nbsp;€</p>
+              <label for="prod-for-bigboys" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-        <li>
-          <article class="producto" data-prod="tangas">
-            <span class="producto__badge">Bajo pedido</span>
-            <img src="assets/modelo-6.png" alt="Pack Tangas" width="220" height="300">
-            <h3>Pack Tangas</h3>
-            <p>Set de 3 unidades, algodón elástico.</p>
-            <p class="producto__precio">19,90&nbsp;€</p>
-            <label for="prod-tangas" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
-          </article>
-        </li>
+          <li>
+            <article class="producto" data-prod="kates-on-crack">
+              <div class="producto__badges">
+                <span class="producto__badge">Explicit</span>
+              </div>
+              <img
+                src="assets/tienda/kates-on-crack.png"
+                alt="Camiseta Kate&#39;s on crack!!, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>Kate&#39;s on crack!!</h3>
+              <p class="producto__precio">25,99&nbsp;€</p>
+              <label for="prod-kates-on-crack" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-        <li>
-          <article class="producto" data-prod="top">
-            <span class="producto__badge">Últimas unidades</span>
-            <img src="assets/modelo-7.png" alt="Top Noche" width="220" height="300">
-            <h3>Top Noche</h3>
-            <p>Edición corta, tejido satinado.</p>
-            <p class="producto__precio">29,90&nbsp;€</p>
-            <label for="prod-top" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
-          </article>
-        </li>
+          <li>
+            <article class="producto" data-prod="most-hated">
+              <div class="producto__badges">
+                <span class="producto__badge">Extra Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/most-hated.png"
+                alt="Camiseta MOST HATED, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>MOST HATED</h3>
+              <p class="producto__precio">25,99&nbsp;€</p>
+              <label for="prod-most-hated" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-        <li>
-          <article class="producto" data-prod="conjunto">
-            <span class="producto__badge">Nuevo</span>
-            <img src="assets/modelo-8.png" alt="Conjunto Coketa" width="220" height="300">
-            <h3>Conjunto Coketa</h3>
-            <p>Top y falda a juego, estampado exclusivo.</p>
-            <p class="producto__precio">54,90&nbsp;€</p>
-            <label for="prod-conjunto" class="producto__anadir"><span class="producto__txt-anadir">Añadir al pedido</span><span class="producto__txt-quitar">Quitar del pedido</span></label>
-          </article>
-        </li>
+          <li>
+            <article class="producto" data-prod="msga">
+              <div class="producto__badges">
+                <span class="producto__badge">Explicit</span>
+              </div>
+              <img
+                src="assets/tienda/msga.png"
+                alt="Camiseta MSGA, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>MSGA</h3>
+              <p class="producto__precio">25,99&nbsp;€</p>
+              <label for="prod-msga" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-      </ul>
-    </section>
+          <li>
+            <article class="producto" data-prod="ojos-de-angel">
+              <div class="producto__badges">
+                <span class="producto__badge">Anuel AA</span>
+                <span class="producto__badge">Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/ojos-de-angel.png"
+                alt="Top de tirantes Ojos de ángel, vista delantera y trasera"
+                width="480"
+                height="403"
+              />
+              <h3>Ojos de ángel</h3>
+              <p class="producto__precio">23,99&nbsp;€</p>
+              <label for="prod-ojos-de-angel" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
 
-    <!-- Información complementaria del encargo: <aside> porque no es
+          <li>
+            <article class="producto" data-prod="playgirl">
+              <div class="producto__badges">
+                <span class="producto__badge">Extra Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/playgirl.png"
+                alt="Camiseta PLAYGIRL, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>PLAYGIRL</h3>
+              <p class="producto__precio">25,99&nbsp;€</p>
+              <label for="prod-playgirl" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
+
+          <li>
+            <article class="producto" data-prod="reveal">
+              <div class="producto__badges">
+                <span class="producto__badge">Extra Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/reveal.png"
+                alt="Top de tirantes REVEAL, vista delantera y trasera"
+                width="480"
+                height="403"
+              />
+              <h3>REVEAL</h3>
+              <p class="producto__precio">23,99&nbsp;€</p>
+              <label for="prod-reveal" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
+
+          <li>
+            <article class="producto" data-prod="xpert">
+              <div class="producto__badges">
+                <span class="producto__badge">Extra Cunty</span>
+              </div>
+              <img
+                src="assets/tienda/xpert.png"
+                alt="Camiseta XPERT, vista delantera y trasera"
+                width="480"
+                height="383"
+              />
+              <h3>XPERT</h3>
+              <p class="producto__precio">25,99&nbsp;€</p>
+              <label for="prod-xpert" class="producto__anadir"
+                ><span class="producto__txt-anadir">Añadir al pedido</span
+                ><span class="producto__txt-quitar"
+                  >Quitar del pedido</span
+                ></label
+              >
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Información complementaria del encargo: <aside> porque no es
          el contenido principal de la página, y <ol> porque los pasos
          van en orden. -->
-    <aside class="como-funciona">
-      <h2>Cómo hacer un encargo</h2>
-      <ol>
-        <li>Marca en el catálogo las prendas que quieras con <strong>"Añadir al pedido"</strong>.</li>
-        <li>Rellena el formulario de encargo con tus datos y tu talla.</li>
-        <li>Te escribimos por email para confirmar el pedido y el pago.</li>
-      </ol>
-    </aside>
+      <aside class="como-funciona">
+        <h2>Cómo hacer un encargo</h2>
+        <ol>
+          <li>
+            Marca en el catálogo las prendas que quieras con
+            <strong>"Añadir al pedido"</strong>.
+          </li>
+          <li>Rellena el formulario de encargo con tus datos y tu talla.</li>
+          <li>Te escribimos por email para confirmar el pedido y el pago.</li>
+        </ol>
+      </aside>
 
-    <!-- Guía de tallas: tabla con 3 tallas (las mismas que se pueden
+      <!-- Guía de tallas: tabla con 3 tallas (las mismas que se pueden
          elegir en el formulario de encargo de más abajo) -->
-    <section class="tallas-section" aria-label="Guía de tallas">
-      <h2>Guía de tallas</h2>
-      <table>
-        <caption>(estas tallas no son reales, ya que cada prenda es hecha y confeccionada a mano, excepto las de tienda, ya que son talla genérica del diseño)</caption>
-        <thead>
-          <tr>
-            <th scope="col">Talla</th>
-            <th scope="col">Para quién</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">XS<br>XtraSlut</th>
-            <td>Para lxs que queréis mostrar el precioso cuerpo con el que Dios os trajo al mundo, sexys y atrevidxs</td>
-          </tr>
-          <tr>
-            <th scope="row">M<br>Medium Slut</th>
-            <td>Not to innocent and not too much, para lxs que quieren ser más misteriosos y no perder la picardía</td>
-          </tr>
-          <tr>
-            <th scope="row">XL<br>Xtra Large Slut</th>
-            <td>Para lxs que estáis más feeling yourself con el EXTREME Oversize, divertido, extra cómodo y extracunty</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="2">Si estás entre dos tallas, coge con la que más muestres ;)</td>
-          </tr>
-        </tfoot>
-      </table>
-    </section>
+      <section class="tallas-section" aria-label="Guía de tallas">
+        <h2>Guía de tallas</h2>
+        <table>
+          <caption>
+            (estas tallas no son reales, ya que cada prenda es hecha y
+            confeccionada a mano, excepto las de tienda, ya que son talla
+            genérica del diseño)
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Talla</th>
+              <th scope="col">Para quién</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">XS<br />XtraSlut</th>
+              <td>
+                Para lxs que queréis mostrar el precioso cuerpo con el que Dios
+                os trajo al mundo, sexys y atrevidxs
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">M<br />Medium Slut</th>
+              <td>
+                Not to innocent and not too much, para lxs que quieren ser más
+                misteriosos y no perder la picardía
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">XL<br />Xtra Large Slut</th>
+              <td>
+                Para lxs que estáis más feeling yourself con el EXTREME
+                Oversize, divertido, extra cómodo y extracunty
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                Si estás entre dos tallas, coge con la que más muestres ;)
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
 
-    <section class="formularios" aria-label="Formularios de tienda">
+      <section class="formularios" aria-label="Formularios de tienda">
+        <form class="formulario" id="form-encargo" action="#" method="post">
+          <h2>Encargo personalizado</h2>
 
-      <form class="formulario" id="form-encargo" action="#" method="post">
-        <h2>Encargo personalizado</h2>
+          <fieldset>
+            <legend>Datos de contacto</legend>
 
-        <fieldset>
-          <legend>Datos de contacto</legend>
-
-          <div class="campo">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required>
-          </div>
-
-          <div class="campo">
-            <label for="email-encargo">Email</label>
-            <input type="email" id="email-encargo" name="email" required>
-          </div>
-
-          <div class="campo">
-            <label for="fecha-entrega">Fecha de entrega deseada</label>
-            <input type="date" id="fecha-entrega" name="fecha-entrega">
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Detalle del pedido</legend>
-
-          <div class="campo campo--pedido">
-            <span>Prendas seleccionadas del catálogo</span>
-            <ul class="lista-pedido">
-              <li class="lista-pedido__linea" data-prod="camiseta">Camiseta Actitud — 24,90&nbsp;€</li>
-              <li class="lista-pedido__linea" data-prod="sudadera">Sudadera Calle — 44,90&nbsp;€</li>
-              <li class="lista-pedido__linea" data-prod="tangas">Pack Tangas — 19,90&nbsp;€</li>
-              <li class="lista-pedido__linea" data-prod="top">Top Noche — 29,90&nbsp;€</li>
-              <li class="lista-pedido__linea" data-prod="conjunto">Conjunto Coketa — 54,90&nbsp;€</li>
-              <li class="lista-pedido__vacio">Todavía no has añadido ninguna prenda del catálogo. Márcalas con "Añadir al pedido" más arriba.</li>
-            </ul>
-          </div>
-
-          <div class="campo">
-            <label for="prenda">Prenda personalizada</label>
-            <select id="prenda" name="prenda">
-              <option value="">— No quiero prenda personalizada —</option>
-              <option value="personalizada">Prenda personalizada (descríbela abajo, en instrucciones especiales)</option>
-            </select>
-          </div>
-
-          <div class="campo">
-            <label for="cantidad">Cantidad (prenda personalizada)</label>
-            <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
-          </div>
-
-          <div class="campo campo--radios">
-            <span>Talla</span>
-            <div class="opcion">
-              <input type="radio" id="talla-xs" name="talla" value="XS">
-              <label for="talla-xs">XS</label>
+            <div class="campo">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" required />
             </div>
-            <div class="opcion">
-              <input type="radio" id="talla-m" name="talla" value="M" checked>
-              <label for="talla-m">M</label>
-            </div>
-            <div class="opcion">
-              <input type="radio" id="talla-xl" name="talla" value="XL">
-              <label for="talla-xl">XL</label>
-            </div>
-          </div>
 
-          <div class="campo campo--checks">
-            <span>Extras</span>
-            <div class="opcion">
-              <input type="checkbox" id="regalo" name="regalo">
-              <label for="regalo">Envolver para regalo</label>
+            <div class="campo">
+              <label for="email-encargo">Email</label>
+              <input type="email" id="email-encargo" name="email" required />
             </div>
-            <div class="opcion">
-              <input type="checkbox" id="newsletter" name="newsletter" checked>
-              <label for="newsletter">Suscribirme a la newsletter</label>
+
+            <div class="campo">
+              <label for="fecha-entrega">Fecha de entrega deseada</label>
+              <input type="date" id="fecha-entrega" name="fecha-entrega" />
             </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Detalle del pedido</legend>
+
+            <div class="campo campo--pedido">
+              <span>Prendas seleccionadas del catálogo</span>
+              <ul class="lista-pedido">
+                <li class="lista-pedido__linea" data-prod="advertisements">
+                  ADVERTISEMENTS — 25,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="exmaquina">
+                  EXMAQUINA — 23,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="for-bigboys">
+                  FOR BIGBOYS — 23,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="kates-on-crack">
+                  Kate&#39;s on crack!! — 25,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="most-hated">
+                  MOST HATED — 25,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="msga">
+                  MSGA — 25,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="ojos-de-angel">
+                  Ojos de ángel — 23,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="playgirl">
+                  PLAYGIRL — 25,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="reveal">
+                  REVEAL — 23,99&nbsp;€
+                </li>
+                <li class="lista-pedido__linea" data-prod="xpert">
+                  XPERT — 25,99&nbsp;€
+                </li>
+                <li class="lista-pedido__vacio">
+                  Todavía no has añadido ninguna prenda del catálogo. Márcalas
+                  con "Añadir al pedido" más arriba.
+                </li>
+              </ul>
+            </div>
+
+            <div class="campo">
+              <label for="prenda">Prenda personalizada</label>
+              <select id="prenda" name="prenda">
+                <option value="">— No quiero prenda personalizada —</option>
+                <option value="personalizada">
+                  Prenda personalizada (descríbela abajo, en instrucciones
+                  especiales)
+                </option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="cantidad">Cantidad (prenda personalizada)</label>
+              <input
+                type="number"
+                id="cantidad"
+                name="cantidad"
+                min="1"
+                max="10"
+                value="1"
+              />
+            </div>
+
+            <div class="campo campo--radios">
+              <span>Talla</span>
+              <div class="opcion">
+                <input type="radio" id="talla-xs" name="talla" value="XS" />
+                <label for="talla-xs">XS</label>
+              </div>
+              <div class="opcion">
+                <input
+                  type="radio"
+                  id="talla-m"
+                  name="talla"
+                  value="M"
+                  checked
+                />
+                <label for="talla-m">M</label>
+              </div>
+              <div class="opcion">
+                <input type="radio" id="talla-xl" name="talla" value="XL" />
+                <label for="talla-xl">XL</label>
+              </div>
+            </div>
+
+            <div class="campo campo--checks">
+              <span>Extras</span>
+              <div class="opcion">
+                <input type="checkbox" id="regalo" name="regalo" />
+                <label for="regalo">Envolver para regalo</label>
+              </div>
+              <div class="opcion">
+                <input
+                  type="checkbox"
+                  id="newsletter"
+                  name="newsletter"
+                  checked
+                />
+                <label for="newsletter">Suscribirme a la newsletter</label>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="mensaje"
+                >Instrucciones especiales o descripción de tu prenda
+                personalizada</label
+              >
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="4"
+                placeholder="Tela, corte, estampado, alguna petición especial..."
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <button type="submit">Enviar encargo</button>
+        </form>
+
+        <form class="formulario" action="#" method="post">
+          <h2>Acceso clientas</h2>
+          <p>¿Ya nos has comprado antes? Entra para ver tus pedidos.</p>
+
+          <div class="campo">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="login-email" required />
           </div>
 
           <div class="campo">
-            <label for="mensaje">Instrucciones especiales o descripción de tu prenda personalizada</label>
-            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tela, corte, estampado, alguna petición especial..."></textarea>
+            <label for="login-password">Contraseña</label>
+            <input
+              type="password"
+              id="login-password"
+              name="login-password"
+              required
+              minlength="6"
+            />
           </div>
-        </fieldset>
 
-        <button type="submit">Enviar encargo</button>
+          <button type="submit">Entrar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <p class="footer__brand">SOLDADO Y COKETA</p>
+
+      <nav class="footer__social" aria-label="Redes sociales">
+        <ul>
+          <li>
+            <a
+              href="https://instagram.com/soldadoycoketa"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+          </li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="lookbook.html">Lookbook</a></li>
+        </ul>
+      </nav>
+
+      <form class="footer__newsletter" action="#" method="post">
+        <label for="newsletter-email">Tu email</label>
+        <input
+          type="email"
+          id="newsletter-email"
+          name="email"
+          placeholder="Tu email"
+          required
+        />
+        <button type="submit">Únete</button>
       </form>
 
-      <form class="formulario" action="#" method="post">
-        <h2>Acceso clientas</h2>
-        <p>¿Ya nos has comprado antes? Entra para ver tus pedidos.</p>
+      <p class="footer__contacto">
+        Contacto:
+        <a href="mailto:soldadoycoketa@gmail.com">soldadoycoketa@gmail.com</a> ·
+        Bilbao, España
+      </p>
 
-        <div class="campo">
-          <label for="login-email">Email</label>
-          <input type="email" id="login-email" name="login-email" required>
-        </div>
-
-        <div class="campo">
-          <label for="login-password">Contraseña</label>
-          <input type="password" id="login-password" name="login-password" required minlength="6">
-        </div>
-
-        <button type="submit">Entrar</button>
-      </form>
-
-    </section>
-
-  </main>
-
-  <footer id="site-footer">
-    <p class="footer__brand">SOLDADO Y COKETA</p>
-
-    <nav class="footer__social" aria-label="Redes sociales">
-      <ul>
-        <li><a href="https://instagram.com/soldadoycoketa" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="lookbook.html">Lookbook</a></li>
-      </ul>
-    </nav>
-
-    <form class="footer__newsletter" action="#" method="post">
-      <label for="newsletter-email">Tu email</label>
-      <input type="email" id="newsletter-email" name="email" placeholder="Tu email" required>
-      <button type="submit">Únete</button>
-    </form>
-
-    <p class="footer__contacto">
-      Contacto: <a href="mailto:soldadoycoketa@gmail.com">soldadoycoketa@gmail.com</a> ·
-      Bilbao, España
-    </p>
-
-    <p class="footer__copy">&copy; 2026 SoldadoYCoketa. Todos los derechos reservados.</p>
-  </footer>
-
-</body>
+      <p class="footer__copy">
+        &copy; 2026 SoldadoYCoketa. Todos los derechos reservados.
+      </p>
+    </footer>
+  </body>
 </html>

@@ -95,7 +95,7 @@ body {
 }
 
 /* Algunas fotos con un margen extra para romper la alineación */
-.portfolio__lista li:nth-child(3n+2) {
+.portfolio__lista li:nth-child(3n + 2) {
   margin-top: 2rem;
 }
 
@@ -114,7 +114,7 @@ body {
     margin-bottom: 0.6rem;
   }
 
-  .portfolio__lista li:nth-child(3n+2) {
+  .portfolio__lista li:nth-child(3n + 2) {
     margin-top: 0;
   }
 }

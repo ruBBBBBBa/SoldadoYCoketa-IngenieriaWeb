@@ -51,8 +51,12 @@ header {
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -111,7 +115,9 @@ header {
   letter-spacing: 0.03em;
   padding-bottom: 0.15rem;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 /* Pseudo-clase :hover en un elemento de tipo enlace */
@@ -174,7 +180,9 @@ footer {
   color: var(--color-blanco);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .footer__social a:hover {

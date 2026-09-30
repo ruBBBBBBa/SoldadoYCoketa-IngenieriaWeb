@@ -43,9 +43,9 @@
   /* Paleta extraída de los assets originales de la marca */
   --color-negro: #000000;
   --color-blanco: #ffffff;
-  --color-rosa: #ff8dc7;        /* rosa principal (logo, acentos) */
+  --color-rosa: #ff8dc7; /* rosa principal (logo, acentos) */
   --color-rosa-palido: #ffc9e4; /* rosa de las texturas de fondo */
-  --color-gris: #d4d4d4;        /* gris neutro de apoyo */
+  --color-gris: #d4d4d4; /* gris neutro de apoyo */
   --color-gris-oscuro: #1a1a1a; /* gris para bloques/tarjetas sobre negro */
 
   /*Fuentes*/
@@ -58,7 +58,6 @@
   /* Ancho de la barra de pole (solo se usa si se enlaza iag.css) */
   --ancho-pole: 20%;
 }
-
 
 *,
 *::before,

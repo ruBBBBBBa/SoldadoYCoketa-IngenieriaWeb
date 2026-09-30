@@ -1,134 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soldado y Coketa — Lookbook</title>
-  <meta name="description" content="Lookbook de Soldado y Coketa: vídeo y fotos de la colección.">
-  <link rel="icon" href="assets/logo-header.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soldado y Coketa — Lookbook</title>
+    <meta
+      name="description"
+      content="Lookbook de Soldado y Coketa: vídeo y fotos de la colección."
+    />
+    <link rel="icon" href="assets/logo-header.png" type="image/png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/headerfooter.css">
-  <link rel="stylesheet" href="css/lookbook.css">
-  <!-- iag.css: capa OPCIONAL, no evaluable (efectos del header/pole-strip
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/headerfooter.css" />
+    <link rel="stylesheet" href="css/lookbook.css" />
+    <!-- iag.css: capa OPCIONAL, no evaluable (efectos del header/pole-strip
        compartidos con el resto del sitio). Esta página no depende de ella
        para nada propio: el vídeo y la galería ya son CSS base sencillo. -->
-  <link rel="stylesheet" href="css/iag.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/iag.css" />
+  </head>
+  <body>
+    <div id="pole-strip" aria-hidden="true"></div>
 
-  <div id="pole-strip" aria-hidden="true"></div>
-
-  <header id="site-header">
-    <div class="header__ticker">
-      <div class="header__ticker-track">
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
-        <span class="header__ticker-text" aria-hidden="true">MAKE SEX GREAT AGAIN</span>
+    <header id="site-header">
+      <div class="header__ticker">
+        <div class="header__ticker-track">
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text">MAKE SEX GREAT AGAIN</span>
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+          <span class="header__ticker-text" aria-hidden="true"
+            >MAKE SEX GREAT AGAIN</span
+          >
+        </div>
       </div>
-    </div>
 
-    <nav class="header__nav-row" aria-label="Navegación principal">
-      <a href="index.html" class="header__logo-link">
-        <img src="assets/logo-header.png" alt="Soldado y Coketa" class="header__logo-img">
-      </a>
-      <ul class="header__menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="lookbook.html" aria-current="page">Lookbook</a></li>
-        <li><a href="tienda.html">Tienda</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav class="header__nav-row" aria-label="Navegación principal">
+        <a href="index.html" class="header__logo-link">
+          <img
+            src="assets/logo-header.png"
+            alt="Soldado y Coketa"
+            class="header__logo-img"
+          />
+        </a>
+        <ul class="header__menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="lookbook.html" aria-current="page">Lookbook</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
+    <main>
+      <section class="intro" aria-label="Presentación del lookbook">
+        <h1>Lookbook</h1>
+        <p>
+          La última colección de Soldado y Coketa, dale al play y desliza para
+          ver toooodo el cuntynido xoxo.
+        </p>
+      </section>
 
-    <section class="intro" aria-label="Presentación del lookbook">
-      <h1>Lookbook</h1>
-      <p>
-        La última colección de Soldado y Coketa, dale al play 
-        y desliza para ver toooodo el cuntynido xoxo.
-      </p>
-    </section>
-
-    <!-- Vídeo de la colección: mismo efecto "namedcollective.com" que el
+      <!-- Vídeo de la colección: mismo efecto "namedcollective.com" que el
          hero de Inicio (se queda fijo en pantalla y el resto de la
          página sube y lo tapa), pero SIN el estampado de fondo que
          lleva el hero — eso solo se activa si se enlaza iag.css. En la
          capa evaluable es un bloque de vídeo grande normal, en el flujo
          de la página. El vídeo lo añade el usuario después; de momento
          solo el hueco con imagen de portada. -->
-    <div class="lookbook-video-spacer" aria-hidden="true"></div>
+      <div class="lookbook-video-spacer" aria-hidden="true"></div>
 
-    <section class="lookbook-video" aria-label="Vídeo de la colección">
-      <video class="lookbook-video__player" controls muted loop playsinline poster="assets/lookbook/foto-01.jpg">
-        <!-- Sustituir por el vídeo real de la colección:
+      <section class="lookbook-video" aria-label="Vídeo de la colección">
+        <video
+          class="lookbook-video__player"
+          controls
+          muted
+          loop
+          playsinline
+          poster="assets/lookbook/foto-01.jpg"
+        >
+          <!-- Sustituir por el vídeo real de la colección:
              <source src="assets/videos/lookbook-reel.mp4" type="video/mp4"> -->
-        Tu navegador no soporta vídeo HTML5.
-      </video>
-    </section>
+          Tu navegador no soporta vídeo HTML5.
+        </video>
+      </section>
 
-    <section class="portfolio" aria-label="Fotos de la colección">
-      <h2>La colección</h2>
-      <ul class="portfolio__lista">
-        <li><img src="assets/lookbook/foto-01.jpg" alt="Foto 1 de la colección Soldado y Coketa" width="1200" height="1600"></li>
-        <li><img src="assets/lookbook/foto-02.jpg" alt="Foto 2 de la colección Soldado y Coketa" width="900" height="1600"></li>
-        <li><img src="assets/lookbook/foto-03.jpg" alt="Foto 3 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-04.jpg" alt="Foto 4 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-05.jpg" alt="Foto 5 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-06.jpg" alt="Foto 6 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-07.jpg" alt="Foto 7 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-08.jpg" alt="Foto 8 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-09.jpg" alt="Foto 9 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-10.jpg" alt="Foto 10 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-11.jpg" alt="Foto 11 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-12.jpg" alt="Foto 12 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-13.jpg" alt="Foto 13 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-14.jpg" alt="Foto 14 de la colección Soldado y Coketa" width="1600" height="1066"></li>
-        <li><img src="assets/lookbook/foto-15.jpg" alt="Foto 15 de la colección Soldado y Coketa" width="1600" height="1131"></li>
-        <li><img src="assets/lookbook/foto-16.jpg" alt="Foto 16 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-        <li><img src="assets/lookbook/foto-17.jpg" alt="Foto 17 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-        <li><img src="assets/lookbook/foto-18.jpg" alt="Foto 18 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-        <li><img src="assets/lookbook/foto-19.jpg" alt="Foto 19 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-        <li><img src="assets/lookbook/foto-20.jpg" alt="Foto 20 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-        <li><img src="assets/lookbook/foto-21.jpg" alt="Foto 21 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-        <li><img src="assets/lookbook/foto-22.jpg" alt="Foto 22 de la colección Soldado y Coketa" width="1600" height="1200"></li>
-      </ul>
-    </section>
+      <section class="portfolio" aria-label="Fotos de la colección">
+        <h2>La colección</h2>
+        <ul class="portfolio__lista">
+          <li>
+            <img
+              src="assets/lookbook/foto-01.jpg"
+              alt="Foto 1 de la colección Soldado y Coketa"
+              width="1200"
+              height="1600"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-02.jpg"
+              alt="Foto 2 de la colección Soldado y Coketa"
+              width="900"
+              height="1600"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-03.jpg"
+              alt="Foto 3 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-04.jpg"
+              alt="Foto 4 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-05.jpg"
+              alt="Foto 5 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-06.jpg"
+              alt="Foto 6 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-07.jpg"
+              alt="Foto 7 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-08.jpg"
+              alt="Foto 8 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-09.jpg"
+              alt="Foto 9 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-10.jpg"
+              alt="Foto 10 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-11.jpg"
+              alt="Foto 11 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-12.jpg"
+              alt="Foto 12 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-13.jpg"
+              alt="Foto 13 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-14.jpg"
+              alt="Foto 14 de la colección Soldado y Coketa"
+              width="1600"
+              height="1066"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-15.jpg"
+              alt="Foto 15 de la colección Soldado y Coketa"
+              width="1600"
+              height="1131"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-16.jpg"
+              alt="Foto 16 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-17.jpg"
+              alt="Foto 17 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-18.jpg"
+              alt="Foto 18 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-19.jpg"
+              alt="Foto 19 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-20.jpg"
+              alt="Foto 20 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-21.jpg"
+              alt="Foto 21 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+          <li>
+            <img
+              src="assets/lookbook/foto-22.jpg"
+              alt="Foto 22 de la colección Soldado y Coketa"
+              width="1600"
+              height="1200"
+            />
+          </li>
+        </ul>
+      </section>
+    </main>
 
-  </main>
+    <footer id="site-footer">
+      <p class="footer__brand">SOLDADO Y COKETA</p>
 
-  <footer id="site-footer">
-    <p class="footer__brand">SOLDADO Y COKETA</p>
+      <nav class="footer__social" aria-label="Redes sociales">
+        <ul>
+          <li>
+            <a
+              href="https://instagram.com/soldadoycoketa"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+          </li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </nav>
 
-    <nav class="footer__social" aria-label="Redes sociales">
-      <ul>
-        <li><a href="https://instagram.com/soldadoycoketa" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="tienda.html">Tienda</a></li>
-      </ul>
-    </nav>
+      <form class="footer__newsletter" action="#" method="post">
+        <label for="newsletter-email">Tu email</label>
+        <input
+          type="email"
+          id="newsletter-email"
+          name="email"
+          placeholder="Tu email"
+          required
+        />
+        <button type="submit">Únete</button>
+      </form>
 
-    <form class="footer__newsletter" action="#" method="post">
-      <label for="newsletter-email">Tu email</label>
-      <input type="email" id="newsletter-email" name="email" placeholder="Tu email" required>
-      <button type="submit">Únete</button>
-    </form>
+      <p class="footer__contacto">
+        Contacto:
+        <a href="mailto:soldadoycoketa@gmail.com">soldadoycoketa@gmail.com</a> ·
+        Bilbao, España
+      </p>
 
-    <p class="footer__contacto">
-      Contacto: <a href="mailto:soldadoycoketa@gmail.com">soldadoycoketa@gmail.com</a> ·
-      Bilbao, España
-    </p>
-
-    <p class="footer__copy">&copy; 2026 SoldadoYCoketa. Todos los derechos reservados.</p>
-  </footer>
-
-</body>
+      <p class="footer__copy">
+        &copy; 2026 SoldadoYCoketa. Todos los derechos reservados.
+      </p>
+    </footer>
+  </body>
 </html>

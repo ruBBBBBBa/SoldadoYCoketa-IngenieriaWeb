@@ -72,11 +72,13 @@ body {
   transition: border-color 0.2s ease;
 }
 
+/* Las fotos son mockups horizontales (delante y detrás): se ven
+   enteras (contain), todas a la misma altura para que las tarjetas
+   queden alineadas */
 .producto img {
   width: 100%;
-  max-width: 200px;
-  height: 260px;
-  object-fit: cover;
+  height: 180px;
+  object-fit: contain;
   display: block;
   margin: 0 auto 0.75rem;
 }
@@ -101,11 +103,20 @@ body {
   font-size: 1.1rem;
 }
 
-/* Insignia anclada a la esquina de la tarjeta */
-.producto__badge {
+/* Etiquetas ancladas a la esquina de la tarjeta: van en un contenedor
+   para que, si una prenda tiene varias, se apilen en vez de solaparse */
+.producto__badges {
   position: absolute;
   top: 0.6rem;
   right: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  z-index: 1;
+}
+
+.producto__badge {
   background-color: var(--color-rosa);
   color: var(--color-negro);
   font-family: var(--fuente-display);
@@ -126,7 +137,9 @@ body {
   padding: 0.6rem 1.2rem;
   border: 2px solid var(--color-rosa);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .producto__anadir:hover {
@@ -154,46 +167,71 @@ body {
   clip: rect(0 0 0 0);
 }
 
-#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"],
-#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"],
-#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"],
-#prod-top:checked ~ .catalogo .producto[data-prod="top"],
-#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] {
+#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"],
+#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"],
+#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"],
+#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"],
+#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"],
+#prod-msga:checked ~ .catalogo .producto[data-prod="msga"],
+#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"],
+#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"],
+#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"],
+#prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] {
   border-color: var(--color-rosa);
 }
 
 /* Prenda marcada: el botón invierte sus colores (fondo negro, texto
    rosa) y cambia "Añadir al pedido" por "Quitar del pedido" */
-#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"] .producto__anadir,
-#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"] .producto__anadir,
-#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"] .producto__anadir,
-#prod-top:checked ~ .catalogo .producto[data-prod="top"] .producto__anadir,
-#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] .producto__anadir {
+#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"] .producto__anadir,
+#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"] .producto__anadir,
+#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"] .producto__anadir,
+#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"] .producto__anadir,
+#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"] .producto__anadir,
+#prod-msga:checked ~ .catalogo .producto[data-prod="msga"] .producto__anadir,
+#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"] .producto__anadir,
+#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"] .producto__anadir,
+#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"] .producto__anadir,
+#prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] .producto__anadir {
   background-color: var(--color-negro);
   color: var(--color-rosa);
 }
 
-#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"] .producto__txt-anadir,
-#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"] .producto__txt-anadir,
-#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"] .producto__txt-anadir,
-#prod-top:checked ~ .catalogo .producto[data-prod="top"] .producto__txt-anadir,
-#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] .producto__txt-anadir {
+#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"] .producto__txt-anadir,
+#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"] .producto__txt-anadir,
+#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"] .producto__txt-anadir,
+#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"] .producto__txt-anadir,
+#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"] .producto__txt-anadir,
+#prod-msga:checked ~ .catalogo .producto[data-prod="msga"] .producto__txt-anadir,
+#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"] .producto__txt-anadir,
+#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"] .producto__txt-anadir,
+#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"] .producto__txt-anadir,
+#prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] .producto__txt-anadir {
   display: none;
 }
 
-#prod-camiseta:checked ~ .catalogo .producto[data-prod="camiseta"] .producto__txt-quitar,
-#prod-sudadera:checked ~ .catalogo .producto[data-prod="sudadera"] .producto__txt-quitar,
-#prod-tangas:checked ~ .catalogo .producto[data-prod="tangas"] .producto__txt-quitar,
-#prod-top:checked ~ .catalogo .producto[data-prod="top"] .producto__txt-quitar,
-#prod-conjunto:checked ~ .catalogo .producto[data-prod="conjunto"] .producto__txt-quitar {
+#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"] .producto__txt-quitar,
+#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"] .producto__txt-quitar,
+#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"] .producto__txt-quitar,
+#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"] .producto__txt-quitar,
+#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"] .producto__txt-quitar,
+#prod-msga:checked ~ .catalogo .producto[data-prod="msga"] .producto__txt-quitar,
+#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"] .producto__txt-quitar,
+#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"] .producto__txt-quitar,
+#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"] .producto__txt-quitar,
+#prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] .producto__txt-quitar {
   display: inline;
 }
 
-#prod-camiseta:focus-visible ~ .catalogo .producto[data-prod="camiseta"],
-#prod-sudadera:focus-visible ~ .catalogo .producto[data-prod="sudadera"],
-#prod-tangas:focus-visible ~ .catalogo .producto[data-prod="tangas"],
-#prod-top:focus-visible ~ .catalogo .producto[data-prod="top"],
-#prod-conjunto:focus-visible ~ .catalogo .producto[data-prod="conjunto"] {
+#prod-advertisements:focus-visible ~ .catalogo .producto[data-prod="advertisements"],
+#prod-exmaquina:focus-visible ~ .catalogo .producto[data-prod="exmaquina"],
+#prod-for-bigboys:focus-visible ~ .catalogo .producto[data-prod="for-bigboys"],
+#prod-kates-on-crack:focus-visible ~ .catalogo .producto[data-prod="kates-on-crack"],
+#prod-most-hated:focus-visible ~ .catalogo .producto[data-prod="most-hated"],
+#prod-msga:focus-visible ~ .catalogo .producto[data-prod="msga"],
+#prod-ojos-de-angel:focus-visible ~ .catalogo .producto[data-prod="ojos-de-angel"],
+#prod-playgirl:focus-visible ~ .catalogo .producto[data-prod="playgirl"],
+#prod-reveal:focus-visible ~ .catalogo .producto[data-prod="reveal"],
+#prod-xpert:focus-visible ~ .catalogo .producto[data-prod="xpert"] {
   outline: 2px solid var(--color-rosa);
   outline-offset: 2px;
 }
@@ -203,20 +241,30 @@ body {
   display: none;
 }
 
-#prod-camiseta:checked ~ .formularios .lista-pedido__linea[data-prod="camiseta"],
-#prod-sudadera:checked ~ .formularios .lista-pedido__linea[data-prod="sudadera"],
-#prod-tangas:checked ~ .formularios .lista-pedido__linea[data-prod="tangas"],
-#prod-top:checked ~ .formularios .lista-pedido__linea[data-prod="top"],
-#prod-conjunto:checked ~ .formularios .lista-pedido__linea[data-prod="conjunto"] {
+#prod-advertisements:checked ~ .formularios .lista-pedido__linea[data-prod="advertisements"],
+#prod-exmaquina:checked ~ .formularios .lista-pedido__linea[data-prod="exmaquina"],
+#prod-for-bigboys:checked ~ .formularios .lista-pedido__linea[data-prod="for-bigboys"],
+#prod-kates-on-crack:checked ~ .formularios .lista-pedido__linea[data-prod="kates-on-crack"],
+#prod-most-hated:checked ~ .formularios .lista-pedido__linea[data-prod="most-hated"],
+#prod-msga:checked ~ .formularios .lista-pedido__linea[data-prod="msga"],
+#prod-ojos-de-angel:checked ~ .formularios .lista-pedido__linea[data-prod="ojos-de-angel"],
+#prod-playgirl:checked ~ .formularios .lista-pedido__linea[data-prod="playgirl"],
+#prod-reveal:checked ~ .formularios .lista-pedido__linea[data-prod="reveal"],
+#prod-xpert:checked ~ .formularios .lista-pedido__linea[data-prod="xpert"] {
   display: list-item;
 }
 
 /* El mensaje de "vacío" se oculta en cuanto hay algo marcado */
-#prod-camiseta:checked ~ .formularios .lista-pedido__vacio,
-#prod-sudadera:checked ~ .formularios .lista-pedido__vacio,
-#prod-tangas:checked ~ .formularios .lista-pedido__vacio,
-#prod-top:checked ~ .formularios .lista-pedido__vacio,
-#prod-conjunto:checked ~ .formularios .lista-pedido__vacio {
+#prod-advertisements:checked ~ .formularios .lista-pedido__vacio,
+#prod-exmaquina:checked ~ .formularios .lista-pedido__vacio,
+#prod-for-bigboys:checked ~ .formularios .lista-pedido__vacio,
+#prod-kates-on-crack:checked ~ .formularios .lista-pedido__vacio,
+#prod-most-hated:checked ~ .formularios .lista-pedido__vacio,
+#prod-msga:checked ~ .formularios .lista-pedido__vacio,
+#prod-ojos-de-angel:checked ~ .formularios .lista-pedido__vacio,
+#prod-playgirl:checked ~ .formularios .lista-pedido__vacio,
+#prod-reveal:checked ~ .formularios .lista-pedido__vacio,
+#prod-xpert:checked ~ .formularios .lista-pedido__vacio {
   display: none;
 }
 

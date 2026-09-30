@@ -100,11 +100,13 @@ body {
 
 .hero__vignette {
   z-index: 3;
-  background: radial-gradient(circle at center,
+  background: radial-gradient(
+    circle at center,
     rgba(0, 0, 0, 0.95) 0%,
     rgba(0, 0, 0, 0.95) 30%,
     rgba(0, 0, 0, 0.4) 55%,
-    transparent 75%);
+    transparent 75%
+  );
 }
 
 .hero__lockup,
@@ -212,8 +214,12 @@ footer {
 }
 
 @keyframes deslizar-desfile {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

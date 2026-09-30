@@ -309,7 +309,28 @@ nth-child) — hay que completarlos antes de entregar.
       póster con controles que no reproducen nada. Si el vídeo no llega
       a tiempo, mejor quitar `controls` o sustituir el `<video>` por la
       foto de portada.
-- [ ] **Catálogo de Tienda con los diseños reales**: de momento son 5
+- [x] **Catálogo de Tienda con los 10 diseños reales** (2026-09-30):
+      ya están en la web ADVERTISEMENTS, EXMAQUINA, FOR BIGBOYS, Kate's
+      on crack!!, MOST HATED, MSGA, Ojos de ángel, PLAYGIRL, REVEAL y
+      XPERT, cada uno con su foto, nombre, checkbox, línea en el pedido y
+      reglas `:checked`. Sin descripción. Precios y etiquetas de la
+      dueña: 25,99 € (ADVERTISEMENTS, Kate's on crack!!, MOST HATED,
+      MSGA, PLAYGIRL, XPERT) y 23,99 € (EXMAQUINA, FOR BIGBOYS, Ojos de
+      ángel, REVEAL). Etiquetas: "Explicit", "Cunty", "Extra Cunty", y
+      Ojos de ángel lleva dos ("Anuel AA" y "Cunty"). Las etiquetas van
+      dentro de `.producto__badges`, que las apila en la esquina.
+      Validado en W3C (2026-09-30, subido a mano): `tienda.html` da 0
+      errores y 0 avisos. Solo salen mensajes "Info" por la barra final
+      de las etiquetas vacías (`<img … />`, `<br />`), que pone Prettier
+      al formatear. No son errores y no afectan. El CSS también está
+      validado. Las fotos, en `assets/tienda/<nombre>.png`, están
+      recortadas a 480 px de ancho y los nombres de fichero no llevan
+      espacios ni tildes (1,2 MB en total, antes 8 MB). Los A4
+      originales quedaron fuera del repo, en `../assets-originales/tienda/`.
+      Las fotos de la tarjeta se ven enteras (`object-fit: contain`, 180
+      px de alto). Probado con Playwright: las 10 cargan, se
+      añaden y quitan, y se envían con el formulario.
+      Antes: **Catálogo de Tienda con los diseños reales**: de momento son 5
       placeholders (Camiseta Actitud, Sudadera Calle, Pack Tangas, Top
       Noche, Conjunto Coketa) con fotos reutilizadas de `modelo-4..8.png`
       (looks de desfile, no fotos de producto real). **Falta que el
@@ -345,9 +366,8 @@ nth-child) — hay que completarlos antes de entregar.
           nombre y precio (quitar el `<p>` de descripción de los 5
           `<article class="producto">`; la regla `.producto p` de
           `tienda.css` sigue haciendo falta para el precio).
-        - [ ] **Insignias rosas** (`.producto__badge`: "Best seller",
-          "Nuevo", "Bajo pedido", "Últimas unidades"): hay que pensar
-          qué ponen, o si se quitan.
+        - [x] **Etiquetas rosas**: ahora "Explicit", "Cunty", "Extra Cunty" y
+          "Anuel AA" (ver catálogo).
       - Limpieza pendiente: la regla `.hero__eslogan` de `inicio.css` e
         `iag.css` ya no tiene uso desde que se quitó el eslogan.
 - [x] **Email de contacto real** `soldadoycoketa@gmail.com` en el footer
@@ -455,7 +475,10 @@ nth-child) — hay que completarlos antes de entregar.
       actuales van a 1600 px de lado largo).
 - [x] **Ventana emergente "Parental Advisory"** (2026-09-30, hecho en
       Inicio, solo HTML y CSS). Aparece **cada vez que se carga
-      `index.html`**, tapando toda la página. Imagen:
+      `index.html`** como una ventanita (caja negra de 380 px como
+      máximo, con borde rosa y el logo a 260 px) sobre la página
+      oscurecida. Con `iag.css` el fondo además sale desenfocado
+      (`backdrop-filter: blur(8px)`). Imagen:
       `assets/LogoVentanaEmergente.png`, recortada del A4 original a
       1016×618. El original quedó fuera del repo, en
       `../LogoVentanaEmergente-original.png`.
