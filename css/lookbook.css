@@ -1,11 +1,11 @@
-/* ============================================
-   LOOKBOOK — Soldado y Coketa
-   CSS base: vídeo grande de la colección (sin estampado, sin
-   iag.css), portfolio de fotos reales.
-   ============================================
-   Usa var(), clamp(), columns (mosaico del portfolio) y
-   :nth-child(3n+2) — CSS3 estándar, ver nota completa en
-   variables.css. */
+/*
+  LOOKBOOK — Soldado y Coketa:
+
+  CSS base: vídeo grande de la colección, portfolio de fotos reales.
+
+  Usa var(), clamp(), columns (mosaico del portfolio) y :nth-child(3n+2). 
+
+*/
 
 body {
   margin: 0;
@@ -21,7 +21,8 @@ body {
   text-align: center;
   /* Fondo sólido: si se enlaza iag.css, el vídeo de más abajo queda
      fijo en pantalla y esta sección necesita taparlo por completo
-     mientras esté en la parte de arriba (igual que .desfile en Inicio). */
+     mientras esté en la parte de arriba (igual que .desfile en Inicio). 
+  */
   background-color: var(--color-negro);
 }
 
@@ -38,10 +39,9 @@ body {
   color: var(--color-gris);
 }
 
-/* ---------- Vídeo de la colección ----------
-   Aquí es un bloque de vídeo grande normal, en el flujo de la página
-   (SIN el estampado ni el position:fixed del hero de Inicio: eso vive
-   en iag.css). Sin iag.css, el vídeo se ve completo igualmente. */
+/* Vídeo de la colección:
+   Aquí es un bloque de vídeo grande normal, en el flujo de la página. Sin iag.css, el vídeo se ve completo igualmente. 
+*/
 .lookbook-video {
   width: 100%;
   background-color: var(--color-gris-oscuro);
@@ -54,13 +54,14 @@ body {
   object-fit: cover;
 }
 
-/* ---------- Portfolio (fotos reales de la colección) ---------- */
+/* Portfolio (fotos de la colección) */
 .portfolio {
   padding: 2.5rem 1.5rem 3rem;
   max-width: 1300px;
   margin: 0 auto;
-  /* Fondo sólido: es la sección que "sube y tapa" el vídeo fijo
-     cuando se activa iag.css (mismo motivo que en .intro). */
+  /* Fondo sólido: la sección que "sube y tapa" el vídeo fijo
+     cuando se activa iag.css (mismo motivo que en .intro). 
+  */
   background-color: var(--color-negro);
 }
 
@@ -72,9 +73,10 @@ body {
   margin: 0 0 2rem;
 }
 
-/* Mosaico tipo collage con CSS multicolumna: cada foto mantiene su
-   proporción real (las verticales salen más altas), así que las
-   columnas quedan desiguales en vez de una cuadrícula ordenada. */
+/* Mosaico tipo collage: 
+   cada foto mantiene su proporción real (las verticales salen más altas), 
+   así que las columnas quedan desiguales en vez de una cuadrícula ordenada. 
+*/
 .portfolio__lista {
   columns: 4 220px;
   column-gap: 1rem;
@@ -99,7 +101,7 @@ body {
   margin-top: 2rem;
 }
 
-/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+/* Media query: pantallas pequeñas (móvil) */
 @media (max-width: 640px) {
   .lookbook-video__player {
     max-height: 45vh;

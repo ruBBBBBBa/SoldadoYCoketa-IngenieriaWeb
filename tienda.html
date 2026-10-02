@@ -1,4 +1,5 @@
 <!doctype html>
+<!--Los cierres aparecen un poco raros por la extensión Prettier-->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -65,14 +66,15 @@
 
     <main>
       <!-- Interruptor "añadir al pedido" sin JavaScript: técnica CSS pura
-         (checkbox hack) con :checked + combinador de hermanos general
-         (~). Van aquí, como hijos directos de <main>, porque el
+         con :checked + combinador de hermanos general (~). 
+         Van aquí, como hijos directos de <main>, porque el
          combinador ~ solo alcanza a hermanos: desde aquí puede llegar
          tanto a .catalogo (para resaltar la tarjeta marcada) como a
-         .formularios (para mostrar la línea del pedido). Se marcan y
-         desmarcan con la etiqueta "Añadir al pedido" de cada tarjeta;
+         .formularios (para mostrar la línea del pedido). 
+         Se marcan y desmarcan con la etiqueta "Añadir al pedido" de cada tarjeta;
          ocultos visualmente igual que .footer__newsletter label, pero
-         accesibles por teclado y lector de pantalla. -->
+         accesibles por teclado y lector de pantalla. 
+         Esto igual ha sido un poco extra, pero quería que se pudiera hacer.-->
       <input
         type="checkbox"
         id="prod-advertisements"
@@ -165,8 +167,7 @@
 
       <!-- Catálogo: un <article> por diseño, con foto (delante y
          detrás), nombre y precio. Cada prenda tiene su checkbox
-         #prod-x al principio de <main> y su línea en la lista del
-         pedido (ver "checkbox hack" en tienda.css). -->
+         #prod-x al principio de <main> y su línea en la lista del pedido. -->
       <section class="catalogo" aria-label="Catálogo de productos">
         <h2>Catálogo</h2>
         <ul class="catalogo__lista">
@@ -178,8 +179,6 @@
               <img
                 src="assets/tienda/advertisements.png"
                 alt="Camiseta ADVERTISEMENTS, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>ADVERTISEMENTS</h3>
               <p class="producto__precio">25,99&nbsp;€</p>
@@ -200,8 +199,6 @@
               <img
                 src="assets/tienda/exmaquina.png"
                 alt="Top de tirantes EXMAQUINA, vista delantera y trasera"
-                width="480"
-                height="403"
               />
               <h3>EXMAQUINA</h3>
               <p class="producto__precio">23,99&nbsp;€</p>
@@ -222,8 +219,6 @@
               <img
                 src="assets/tienda/for-bigboys.png"
                 alt="Camiseta FOR BIGBOYS, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>FOR BIGBOYS</h3>
               <p class="producto__precio">23,99&nbsp;€</p>
@@ -244,8 +239,6 @@
               <img
                 src="assets/tienda/kates-on-crack.png"
                 alt="Camiseta Kate&#39;s on crack!!, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>Kate&#39;s on crack!!</h3>
               <p class="producto__precio">25,99&nbsp;€</p>
@@ -266,8 +259,6 @@
               <img
                 src="assets/tienda/most-hated.png"
                 alt="Camiseta MOST HATED, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>MOST HATED</h3>
               <p class="producto__precio">25,99&nbsp;€</p>
@@ -288,8 +279,6 @@
               <img
                 src="assets/tienda/msga.png"
                 alt="Camiseta MSGA, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>MSGA</h3>
               <p class="producto__precio">25,99&nbsp;€</p>
@@ -311,8 +300,6 @@
               <img
                 src="assets/tienda/ojos-de-angel.png"
                 alt="Top de tirantes Ojos de ángel, vista delantera y trasera"
-                width="480"
-                height="403"
               />
               <h3>Ojos de ángel</h3>
               <p class="producto__precio">23,99&nbsp;€</p>
@@ -333,8 +320,6 @@
               <img
                 src="assets/tienda/playgirl.png"
                 alt="Camiseta PLAYGIRL, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>PLAYGIRL</h3>
               <p class="producto__precio">25,99&nbsp;€</p>
@@ -355,8 +340,6 @@
               <img
                 src="assets/tienda/reveal.png"
                 alt="Top de tirantes REVEAL, vista delantera y trasera"
-                width="480"
-                height="403"
               />
               <h3>REVEAL</h3>
               <p class="producto__precio">23,99&nbsp;€</p>
@@ -377,8 +360,6 @@
               <img
                 src="assets/tienda/xpert.png"
                 alt="Camiseta XPERT, vista delantera y trasera"
-                width="480"
-                height="383"
               />
               <h3>XPERT</h3>
               <p class="producto__precio">25,99&nbsp;€</p>
@@ -408,8 +389,9 @@
         </ol>
       </aside>
 
-      <!-- Guía de tallas: tabla con 3 tallas (las mismas que se pueden
-         elegir en el formulario de encargo de más abajo) -->
+      <!-- Guía de tallas "de broma": 3 tallas con actitud. No son las
+         tallas reales; en el formulario de encargo se puede elegir
+         cualquiera de XS a XL. -->
       <section class="tallas-section" aria-label="Guía de tallas">
         <h2>Guía de tallas</h2>
         <table>
@@ -483,6 +465,7 @@
           <fieldset>
             <legend>Detalle del pedido</legend>
 
+            <!--Lista oculta con todas las prendas que hay en la tienda, como he mencionado antes.-->
             <div class="campo campo--pedido">
               <span>Prendas seleccionadas del catálogo</span>
               <ul class="lista-pedido">
@@ -523,6 +506,7 @@
               </ul>
             </div>
 
+            <!--Opción para elegir una prenda personalizada si quieres.-->
             <div class="campo">
               <label for="prenda">Prenda personalizada</label>
               <select id="prenda" name="prenda">
@@ -553,6 +537,10 @@
                 <label for="talla-xs">XS</label>
               </div>
               <div class="opcion">
+                <input type="radio" id="talla-s" name="talla" value="S" />
+                <label for="talla-s">S</label>
+              </div>
+              <div class="opcion">
                 <input
                   type="radio"
                   id="talla-m"
@@ -561,6 +549,10 @@
                   checked
                 />
                 <label for="talla-m">M</label>
+              </div>
+              <div class="opcion">
+                <input type="radio" id="talla-l" name="talla" value="L" />
+                <label for="talla-l">L</label>
               </div>
               <div class="opcion">
                 <input type="radio" id="talla-xl" name="talla" value="XL" />
@@ -573,15 +565,6 @@
               <div class="opcion">
                 <input type="checkbox" id="regalo" name="regalo" />
                 <label for="regalo">Envolver para regalo</label>
-              </div>
-              <div class="opcion">
-                <input
-                  type="checkbox"
-                  id="newsletter"
-                  name="newsletter"
-                  checked
-                />
-                <label for="newsletter">Suscribirme a la newsletter</label>
               </div>
             </div>
 

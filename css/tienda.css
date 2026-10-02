@@ -1,12 +1,13 @@
-/* ============================================
-   TIENDA — Soldado y Coketa
+/*
+   TIENDA — Soldado y Coketa:
+
    CSS base: catálogo en tarjetas + formulario de encargo
    personalizado (con selección de catálogo sin JavaScript,
    técnica "checkbox hack") + formulario de acceso de clientas.
-   ============================================
+
    Usa var(), clamp(), transition en :hover/:focus-visible y
-   :nth-child (filas alternas de la guía de tallas) —
-   CSS3 estándar, ver nota completa en variables.css. */
+   :nth-child (filas alternas de la guía de tallas). 
+*/
 
 body {
   margin: 0;
@@ -35,7 +36,7 @@ body {
   color: var(--color-gris);
 }
 
-/* ---------- Catálogo (tarjetas de producto) ---------- */
+/* Catálogo (tarjetas de producto) */
 .catalogo {
   padding: 1.5rem 1.5rem 3rem;
   max-width: 1100px;
@@ -61,7 +62,8 @@ body {
 }
 
 /* Selector de CLASE: cada prenda es un <article> autónomo, con su
-   propia imagen, nombre, descripción y precio */
+   propia imagen, nombre, descripción y precio 
+*/
 .producto {
   position: relative;
   background-color: var(--color-gris-oscuro);
@@ -74,7 +76,8 @@ body {
 
 /* Las fotos son mockups horizontales (delante y detrás): se ven
    enteras (contain), todas a la misma altura para que las tarjetas
-   queden alineadas */
+   queden alineadas 
+*/
 .producto img {
   width: 100%;
   height: 180px;
@@ -103,8 +106,9 @@ body {
   font-size: 1.1rem;
 }
 
-/* Etiquetas ancladas a la esquina de la tarjeta: van en un contenedor
-   para que, si una prenda tiene varias, se apilen en vez de solaparse */
+/* Etiquetas ancladas a la esquina de la tarjeta: 
+   van en un contenedor para que, si una prenda tiene varias, se apilen en vez de solaparse 
+*/
 .producto__badges {
   position: absolute;
   top: 0.6rem;
@@ -125,8 +129,7 @@ body {
   padding: 0.25rem 0.6rem;
 }
 
-/* El label hace de botón: el control real es el checkbox oculto
-   (ver más abajo, técnica sin JavaScript) */
+/* El label hace de botón: el control real es el checkbox oculto. */
 .producto__anadir {
   display: inline-block;
   background-color: var(--color-rosa);
@@ -146,19 +149,19 @@ body {
   background-color: var(--color-rosa-palido);
 }
 
-/* "Quitar del pedido" solo se ve cuando la prenda está marcada
-   (ver las reglas :checked más abajo) */
+/* "Quitar del pedido" solo se ve cuando la prenda está marcada */
 .producto__txt-quitar {
   display: none;
 }
 
-/* ---------- "Añadir al pedido" sin JavaScript (checkbox hack) ----------
-   input[type=checkbox]:checked + combinador de hermanos general (~):
-   ambas técnicas vistas en clase. Los checkboxes están ocultos
-   visualmente (mismo patrón que .footer__newsletter label) pero siguen
-   siendo accesibles por teclado y lector de pantalla. Es repetitivo (un
-   bloque de reglas por producto) porque el checkbox hack no se puede
-   generalizar sin JavaScript ni un preprocesador CSS. */
+/* "Añadir al pedido" sin JavaScript:
+   input[type=checkbox]:checked + combinador de hermanos general (~). 
+   Los checkboxes están ocultos visualmente pero siguen
+   siendo accesibles por teclado y lector de pantalla. 
+   Es repetitivo (un bloque de reglas por producto) porque el checkbox 
+   hack no se puede generalizar sin JavaScript ni un preprocesador CSS. 
+*/
+
 .prod-check {
   position: absolute;
   width: 1px;
@@ -181,54 +184,146 @@ body {
 }
 
 /* Prenda marcada: el botón invierte sus colores (fondo negro, texto
-   rosa) y cambia "Añadir al pedido" por "Quitar del pedido" */
-#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"] .producto__anadir,
-#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"] .producto__anadir,
-#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"] .producto__anadir,
-#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"] .producto__anadir,
-#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"] .producto__anadir,
+   rosa) y cambia "Añadir al pedido" por "Quitar del pedido" 
+*/
+
+#prod-advertisements:checked
+  ~ .catalogo
+  .producto[data-prod="advertisements"]
+  .producto__anadir,
+#prod-exmaquina:checked
+  ~ .catalogo
+  .producto[data-prod="exmaquina"]
+  .producto__anadir,
+#prod-for-bigboys:checked
+  ~ .catalogo
+  .producto[data-prod="for-bigboys"]
+  .producto__anadir,
+#prod-kates-on-crack:checked
+  ~ .catalogo
+  .producto[data-prod="kates-on-crack"]
+  .producto__anadir,
+#prod-most-hated:checked
+  ~ .catalogo
+  .producto[data-prod="most-hated"]
+  .producto__anadir,
 #prod-msga:checked ~ .catalogo .producto[data-prod="msga"] .producto__anadir,
-#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"] .producto__anadir,
-#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"] .producto__anadir,
-#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"] .producto__anadir,
+#prod-ojos-de-angel:checked
+  ~ .catalogo
+  .producto[data-prod="ojos-de-angel"]
+  .producto__anadir,
+#prod-playgirl:checked
+  ~ .catalogo
+  .producto[data-prod="playgirl"]
+  .producto__anadir,
+#prod-reveal:checked
+  ~ .catalogo
+  .producto[data-prod="reveal"]
+  .producto__anadir,
 #prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] .producto__anadir {
   background-color: var(--color-negro);
   color: var(--color-rosa);
 }
 
-#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"] .producto__txt-anadir,
-#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"] .producto__txt-anadir,
-#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"] .producto__txt-anadir,
-#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"] .producto__txt-anadir,
-#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"] .producto__txt-anadir,
-#prod-msga:checked ~ .catalogo .producto[data-prod="msga"] .producto__txt-anadir,
-#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"] .producto__txt-anadir,
-#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"] .producto__txt-anadir,
-#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"] .producto__txt-anadir,
-#prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] .producto__txt-anadir {
+#prod-advertisements:checked
+  ~ .catalogo
+  .producto[data-prod="advertisements"]
+  .producto__txt-anadir,
+#prod-exmaquina:checked
+  ~ .catalogo
+  .producto[data-prod="exmaquina"]
+  .producto__txt-anadir,
+#prod-for-bigboys:checked
+  ~ .catalogo
+  .producto[data-prod="for-bigboys"]
+  .producto__txt-anadir,
+#prod-kates-on-crack:checked
+  ~ .catalogo
+  .producto[data-prod="kates-on-crack"]
+  .producto__txt-anadir,
+#prod-most-hated:checked
+  ~ .catalogo
+  .producto[data-prod="most-hated"]
+  .producto__txt-anadir,
+#prod-msga:checked
+  ~ .catalogo
+  .producto[data-prod="msga"]
+  .producto__txt-anadir,
+#prod-ojos-de-angel:checked
+  ~ .catalogo
+  .producto[data-prod="ojos-de-angel"]
+  .producto__txt-anadir,
+#prod-playgirl:checked
+  ~ .catalogo
+  .producto[data-prod="playgirl"]
+  .producto__txt-anadir,
+#prod-reveal:checked
+  ~ .catalogo
+  .producto[data-prod="reveal"]
+  .producto__txt-anadir,
+#prod-xpert:checked
+  ~ .catalogo
+  .producto[data-prod="xpert"]
+  .producto__txt-anadir {
   display: none;
 }
 
-#prod-advertisements:checked ~ .catalogo .producto[data-prod="advertisements"] .producto__txt-quitar,
-#prod-exmaquina:checked ~ .catalogo .producto[data-prod="exmaquina"] .producto__txt-quitar,
-#prod-for-bigboys:checked ~ .catalogo .producto[data-prod="for-bigboys"] .producto__txt-quitar,
-#prod-kates-on-crack:checked ~ .catalogo .producto[data-prod="kates-on-crack"] .producto__txt-quitar,
-#prod-most-hated:checked ~ .catalogo .producto[data-prod="most-hated"] .producto__txt-quitar,
-#prod-msga:checked ~ .catalogo .producto[data-prod="msga"] .producto__txt-quitar,
-#prod-ojos-de-angel:checked ~ .catalogo .producto[data-prod="ojos-de-angel"] .producto__txt-quitar,
-#prod-playgirl:checked ~ .catalogo .producto[data-prod="playgirl"] .producto__txt-quitar,
-#prod-reveal:checked ~ .catalogo .producto[data-prod="reveal"] .producto__txt-quitar,
-#prod-xpert:checked ~ .catalogo .producto[data-prod="xpert"] .producto__txt-quitar {
+#prod-advertisements:checked
+  ~ .catalogo
+  .producto[data-prod="advertisements"]
+  .producto__txt-quitar,
+#prod-exmaquina:checked
+  ~ .catalogo
+  .producto[data-prod="exmaquina"]
+  .producto__txt-quitar,
+#prod-for-bigboys:checked
+  ~ .catalogo
+  .producto[data-prod="for-bigboys"]
+  .producto__txt-quitar,
+#prod-kates-on-crack:checked
+  ~ .catalogo
+  .producto[data-prod="kates-on-crack"]
+  .producto__txt-quitar,
+#prod-most-hated:checked
+  ~ .catalogo
+  .producto[data-prod="most-hated"]
+  .producto__txt-quitar,
+#prod-msga:checked
+  ~ .catalogo
+  .producto[data-prod="msga"]
+  .producto__txt-quitar,
+#prod-ojos-de-angel:checked
+  ~ .catalogo
+  .producto[data-prod="ojos-de-angel"]
+  .producto__txt-quitar,
+#prod-playgirl:checked
+  ~ .catalogo
+  .producto[data-prod="playgirl"]
+  .producto__txt-quitar,
+#prod-reveal:checked
+  ~ .catalogo
+  .producto[data-prod="reveal"]
+  .producto__txt-quitar,
+#prod-xpert:checked
+  ~ .catalogo
+  .producto[data-prod="xpert"]
+  .producto__txt-quitar {
   display: inline;
 }
 
-#prod-advertisements:focus-visible ~ .catalogo .producto[data-prod="advertisements"],
+#prod-advertisements:focus-visible
+  ~ .catalogo
+  .producto[data-prod="advertisements"],
 #prod-exmaquina:focus-visible ~ .catalogo .producto[data-prod="exmaquina"],
 #prod-for-bigboys:focus-visible ~ .catalogo .producto[data-prod="for-bigboys"],
-#prod-kates-on-crack:focus-visible ~ .catalogo .producto[data-prod="kates-on-crack"],
+#prod-kates-on-crack:focus-visible
+  ~ .catalogo
+  .producto[data-prod="kates-on-crack"],
 #prod-most-hated:focus-visible ~ .catalogo .producto[data-prod="most-hated"],
 #prod-msga:focus-visible ~ .catalogo .producto[data-prod="msga"],
-#prod-ojos-de-angel:focus-visible ~ .catalogo .producto[data-prod="ojos-de-angel"],
+#prod-ojos-de-angel:focus-visible
+  ~ .catalogo
+  .producto[data-prod="ojos-de-angel"],
 #prod-playgirl:focus-visible ~ .catalogo .producto[data-prod="playgirl"],
 #prod-reveal:focus-visible ~ .catalogo .producto[data-prod="reveal"],
 #prod-xpert:focus-visible ~ .catalogo .producto[data-prod="xpert"] {
@@ -241,14 +336,28 @@ body {
   display: none;
 }
 
-#prod-advertisements:checked ~ .formularios .lista-pedido__linea[data-prod="advertisements"],
-#prod-exmaquina:checked ~ .formularios .lista-pedido__linea[data-prod="exmaquina"],
-#prod-for-bigboys:checked ~ .formularios .lista-pedido__linea[data-prod="for-bigboys"],
-#prod-kates-on-crack:checked ~ .formularios .lista-pedido__linea[data-prod="kates-on-crack"],
-#prod-most-hated:checked ~ .formularios .lista-pedido__linea[data-prod="most-hated"],
+#prod-advertisements:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="advertisements"],
+#prod-exmaquina:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="exmaquina"],
+#prod-for-bigboys:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="for-bigboys"],
+#prod-kates-on-crack:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="kates-on-crack"],
+#prod-most-hated:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="most-hated"],
 #prod-msga:checked ~ .formularios .lista-pedido__linea[data-prod="msga"],
-#prod-ojos-de-angel:checked ~ .formularios .lista-pedido__linea[data-prod="ojos-de-angel"],
-#prod-playgirl:checked ~ .formularios .lista-pedido__linea[data-prod="playgirl"],
+#prod-ojos-de-angel:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="ojos-de-angel"],
+#prod-playgirl:checked
+  ~ .formularios
+  .lista-pedido__linea[data-prod="playgirl"],
 #prod-reveal:checked ~ .formularios .lista-pedido__linea[data-prod="reveal"],
 #prod-xpert:checked ~ .formularios .lista-pedido__linea[data-prod="xpert"] {
   display: list-item;
@@ -285,7 +394,7 @@ body {
   font-size: 0.85rem;
 }
 
-/* ---------- Cómo hacer un encargo (aside) ---------- */
+/* Cómo hacer un encargo (aside) */
 .como-funciona {
   max-width: 720px;
   margin: 0 auto 1.5rem;
@@ -306,7 +415,7 @@ body {
   padding-left: 1.2rem;
 }
 
-/* ---------- Guía de tallas (tabla) ---------- */
+/* Guía de tallas (tabla) */
 .tallas-section {
   padding: 1rem 1.5rem 2rem;
   max-width: 720px;
@@ -350,9 +459,9 @@ thead th {
   letter-spacing: 0.03em;
 }
 
-/* Nombre de la talla (primera columna): centrado y con la fuente de
-   los títulos; la descripción va alineada a la izquierda para leerse
-   mejor al ser un texto largo */
+/* Nombre de la talla (primera columna): 
+   centrado y con la fuente de los títulos y descripción alineada a la izquierda.
+*/
 tbody th {
   font-family: var(--fuente-display);
   color: var(--color-rosa);
@@ -370,7 +479,7 @@ tfoot td {
   text-align: center;
 }
 
-/* ---------- Formularios (encargo + acceso) ---------- */
+/* Formularios (encargo + acceso) */
 .formularios {
   display: flex;
   flex-wrap: wrap;
@@ -489,7 +598,7 @@ legend {
   outline-offset: 2px;
 }
 
-/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+/* Media query: pantallas pequeñas (móvil) */
 @media (max-width: 640px) {
   .formularios {
     flex-direction: column;
@@ -505,7 +614,8 @@ legend {
 
   /* Catálogo en 2 columnas: con una sola, las 10 prendas ocupaban
      una tira larguísima. Cada <li> ocupa la mitad menos medio hueco,
-     y la tarjeta se estira a todo el <li> para que todas midan igual. */
+     y la tarjeta se estira a todo el <li> para que todas midan igual. 
+  */
   .catalogo {
     padding: 1rem 0.75rem 2rem;
   }
@@ -521,7 +631,8 @@ legend {
   }
 
   /* Columna flex con el botón empujado abajo (margin-top: auto), para
-     que los botones queden alineados aunque un nombre ocupe 2 líneas */
+     que los botones queden alineados aunque un nombre ocupe 2 líneas 
+  */
   .producto {
     display: flex;
     flex-direction: column;

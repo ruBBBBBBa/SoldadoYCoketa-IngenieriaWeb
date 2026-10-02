@@ -393,6 +393,46 @@ nth-child) — hay que completarlos antes de entregar.
 - [x] **Botón "Añadir al pedido" ↔ "Quitar del pedido"** con colores
       invertidos al marcar la prenda (2026-09-28, ver §6).
 
+**Revisión del usuario (2026-10-02):**
+
+- [x] **Sin `width`/`height` en el HTML** en las 3 páginas: el
+      profesor prefiere que el tamaño se defina en el CSS. Todas las
+      imágenes ya tenían su tamaño en CSS, así que se ven igual
+      (comprobado con Playwright en escritorio y móvil: mismos tamaños,
+      ninguna a tamaño natural, sin scroll lateral). La rúbrica pide
+      "width/max-width + alt", y eso lo cubren el CSS y los `alt`.
+      Contra: el navegador ya no reserva el hueco antes de que cargue
+      la imagen, así que en una conexión lenta la página puede "saltar"
+      un poco mientras cargan.
+- [x] Comentarios reescritos por el usuario y `autoplay` en el vídeo del
+      Lookbook. Validado en W3C: 0 errores y 0 avisos en las 3 páginas
+      (solo "Info" por la `/` final de Prettier).
+- [x] **Vídeo del Lookbook añadido** (2026-10-02): en
+      `assets/lookbook/video/` hay `lookbook-video.webm` y
+      `lookbook-video.mp4`, como dos `<source>`. Se reproduce solo y el
+      collage se ve encima (comprobado con Playwright).
+- [x] **Vídeo recomprimido** (2026-10-02): 1282×720, 24 fps, sin audio.
+      mp4 (H.264, CRF 30) 9,1 MB y webm (VP9, CRF 42) 8,8 MB: unos 18 MB
+      entre los dos, antes 85 MB. Los originales quedaron fuera del repo,
+      en `../assets-originales/lookbook-video/`. Comprobado que los dos
+      se decodifican y que el webm se reproduce solo con el collage
+      encima. `assets/` pasa a ocupar 31 MB.
+      Problema original: 1920×1078 y 68 s, 39 MB el webm y 46 MB el mp4
+      (85 MB en total). En móvil son 39 MB solo para entrar
+      al Lookbook, el zip de entrega pasa de unos 15 MB a unos 100 MB, y
+      GitHub avisa a partir de 50 MB por fichero. Como va `muted`, el
+      audio sobra. Recomendado: recomprimir a 720p sin audio (con
+      ffmpeg, unos 4-8 MB cada uno).
+- [x] **Comentarios de los 6 CSS reescritos por el usuario**
+      (2026-10-02). Comprobado que el código CSS es idéntico al del
+      último commit: solo cambian comentarios y formato. Los 5 evaluables
+      pasan el validador W3C; `iag.css` sigue con su único error de
+      siempre (`calc()` con `var()`, falso positivo del validador). Restos
+      de historia en `iag.css`: menciona un `figcaption "Look XX"` y "lo
+      que tenía antes el lookbook", que ya no existen.
+- [ ] Erratas en comentarios de `index.html`: "navegr" → "navegar",
+      "PArte" → "Parte".
+
 **Pedidos del equipo (2026-09-29):**
 
 - [x] **Tangas del hero más grandes** (2026-09-30): `.hero__tangas`
@@ -451,8 +491,9 @@ nth-child) — hay que completarlos antes de entregar.
       en la primera columna con `<br>` ("XS<br>XtraSlut"). Se mantienen
       el `caption` y el `tfoot` del usuario. Los estilos pasaron de
       `lookbook.css` a `tienda.css`, se quitó `.tallas-section` de
-      `iag.css`, y los radios del formulario son ahora XS, M (marcada) y
-      XL. Validado en W3C y visto en escritorio y móvil. ⚠️ El texto va
+      `iag.css`. La guía es una broma y no son las tallas reales, así que
+      el formulario de encargo mantiene las 5 tallas, XS, S, M (marcada),
+      L y XL (corregido el 2026-10-01; se habían dejado solo XS, M y XL). Validado en W3C y visto en escritorio y móvil. ⚠️ El texto va
       tal cual lo pasó la dueña: "Not **to** innocent" probablemente
       debería ser "too". El `caption` dice "excepto las de tienda", y
       ahora la tabla está en la tienda: revisar si se entiende.
@@ -477,10 +518,10 @@ nth-child) — hay que completarlos antes de entregar.
         Lookbook (descripción `<meta>`, comentarios).
 - [ ] **Otras fotos y otro orden en el collage del Lookbook.** El
       usuario elige cuáles y en qué orden. Hoy son las 22 de
-      `assets/lookbook/foto-01..22.jpg` en orden numérico. Al cambiarlas,
-      el `width`/`height` de cada `<img>` debe ser la proporción real de
-      esa foto (el mosaico respeta la proporción de cada una), y hay que
-      actualizar los `alt`. Fotos nuevas: redimensionarlas antes (las
+      `assets/lookbook/foto-01..22.jpg` en orden numérico. Al cambiarlas
+      hay que actualizar los `alt`. Sin `width`/`height` en el HTML (ver
+      decisión del 2026-10-02), el mosaico toma la proporción de cada foto
+      directamente del archivo. Fotos nuevas: redimensionarlas antes (las
       actuales van a 1600 px de lado largo).
 - [x] **Ventana emergente "Parental Advisory"** (2026-09-30, hecho en
       Inicio, solo HTML y CSS). Aparece **cada vez que se carga

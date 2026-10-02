@@ -1,4 +1,5 @@
 <!doctype html>
+<!--Los cierres aparecen un poco raros por la extensión Prettier-->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -43,8 +44,6 @@
           src="assets/LogoVentanaEmergente.png"
           alt="Parental Advisory: Cunty Content"
           class="aviso__img"
-          width="1016"
-          height="618"
         />
         <div class="aviso__botones">
           <label for="aviso-check" class="aviso__boton aviso__boton--entrar"
@@ -86,6 +85,7 @@
         </div>
       </div>
 
+      <!--Parte del header para navegr entre los htmls-->
       <nav class="header__nav-row" aria-label="Navegación principal">
         <a href="index.html" class="header__logo-link">
           <img
@@ -107,6 +107,7 @@
          position:fixed; en la versión base no ocupa espacio. -->
       <div class="hero-spacer" aria-hidden="true"></div>
 
+      <!--PArte principal, la que se queda detrás de todo el contenido del index mientras sube todo lo demás tapándolo-->
       <section class="hero" aria-label="Presentación de la marca">
         <div class="hero__pattern--rosa-base" aria-hidden="true"></div>
         <div class="hero__pattern--rosa" aria-hidden="true"></div>
@@ -131,12 +132,10 @@
       </section>
 
       <!-- Desfile: carrusel de looks con fondo transparente (los PNG ya
-         vienen recortados sobre fondo transparente). En la capa evaluable
+         vienen recortados sobre fondo transparente). Sin iag.css
          es una fila estática con hover simple; si se enlaza iag.css, se
-         convierte en cinta animada en bucle (como el carrusel que tenía
-         antes el lookbook) y el hover amplía el look bajo el cursor sin
-         parar de mirar mal al resto. Las copias con aria-hidden son solo
-         para que el bucle de la animación no tenga corte visible. -->
+         convierte en cinta animada en bucle y el hover amplía el look bajo el cursor. 
+         Las copias con aria-hidden son solo para que el bucle de la animación no tenga corte visible. -->
       <section class="desfile" aria-label="Looks de la colección en pasarela">
         <h2>La colección en pasarela</h2>
         <ul class="desfile__lista">
@@ -146,8 +145,6 @@
                 src="assets/modelo-1.png"
                 alt="Look 01 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -157,8 +154,6 @@
                 src="assets/modelo-2.png"
                 alt="Look 02 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -168,8 +163,6 @@
                 src="assets/modelo-3.png"
                 alt="Look 03 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -179,8 +172,6 @@
                 src="assets/modelo-4.png"
                 alt="Look 04 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -190,8 +181,6 @@
                 src="assets/modelo-5.png"
                 alt="Look 05 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -201,8 +190,6 @@
                 src="assets/modelo-6.png"
                 alt="Look 06 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -212,8 +199,6 @@
                 src="assets/modelo-7.png"
                 alt="Look 07 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -223,8 +208,6 @@
                 src="assets/modelo-8.png"
                 alt="Look 08 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -234,8 +217,6 @@
                 src="assets/modelo-9.png"
                 alt="Look 09 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -245,8 +226,6 @@
                 src="assets/modelo-10.png"
                 alt="Look 10 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -256,8 +235,6 @@
                 src="assets/modelo-11.png"
                 alt="Look 11 de la colección Soldado y Coketa"
                 class="fit-card__img"
-                width="220"
-                height="320"
               />
             </figure>
           </li>
@@ -266,123 +243,57 @@
              sentido) cuando iag.css activa el modo carrusel animado. -->
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-1.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-1.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-2.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-2.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-3.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-3.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-4.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-4.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-5.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-5.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-6.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-6.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-7.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-7.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-8.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-8.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-9.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-9.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-10.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-10.png" alt="" class="fit-card__img" />
             </figure>
           </li>
           <li class="desfile__item" aria-hidden="true">
             <figure class="fit-card">
-              <img
-                src="assets/modelo-11.png"
-                alt=""
-                class="fit-card__img"
-                width="220"
-                height="320"
-              />
+              <img src="assets/modelo-11.png" alt="" class="fit-card__img" />
             </figure>
           </li>
         </ul>
@@ -391,6 +302,7 @@
         >
       </section>
 
+      <!--Un pequeño texto-->
       <section class="manifiesto-section" aria-label="Manifiesto de marca">
         <div class="manifiesto">
           <h2>Locally hated, Globally glorified</h2>

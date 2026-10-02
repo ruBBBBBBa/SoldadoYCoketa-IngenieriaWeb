@@ -1,22 +1,23 @@
-/* ============================================
-   IAG.CSS — capa OPCIONAL, NO EVALUABLE
-   ============================================
-   Aquí viven los efectos "de más" (parallax, blend
-   modes, animaciones de carrusel) hechos con apoyo de
-   IA generativa, tal y como pide el enunciado:
+/* 
+  IAG.CSS — capa OPCIONAL (no entra en la evaluación):
 
-     "Si se quiere añadir animaciones o estilo muy
-     diferente al visto en clase usando IAg, generar un
-     iag.css (no evaluable)"
+  Aquí viven los efectos "de más" (parallax, blend
+  modes, animaciones de carrusel) hechos con apoyo de
+  IA generativa.
 
-   Si se borra este <link> del <head>, las tres páginas
-   siguen siendo HTML/CSS completos, válidos y con buen
-   aspecto — esto solo añade capas encima.
-   ============================================ */
+  Si se borra este <link> del <head>, las tres páginas
+  siguen siendo HTML/CSS completos, válidos y con buen
+  specto — esto solo añade capas encima.
 
-/* ---------- Barra de pole ----------
+  [La mayoría de los comentarios escritos en este fichero no los he escrito yo,
+  en los demás ficheros sí, pero aquí los he dejado hecchos por la IA directamente 
+  porque hay cosas que no sabía explicar lo suficientemente bien.]
+*/
+
+/* Barra de pole:
    Silueta decorativa que recorre TODA la página de
-   arriba a abajo, integrada de forma transparente. */
+   arriba a abajo, integrada de forma transparente. 
+*/
 #pole-strip {
   position: absolute;
   top: var(--alto-header);
@@ -39,17 +40,19 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- Ventana "Parental Advisory": fondo desenfocado ----------
+/* Ventana "Parental Advisory": fondo desenfocado
    La capa base (inicio.css) solo oscurece la página de detrás; aquí
-   además se desenfoca, para que el aviso destaque. */
+   además se desenfoca, para que el aviso destaque. 
+*/
 .aviso {
   backdrop-filter: blur(8px);
 }
 
-/* ---------- Hero fijo en Inicio (efecto namedcollective.com) ----------
+/* Hero fijo en Inicio: 
    El hero pasa de estar en el flujo normal (CSS base) a
    quedarse pegado a la pantalla mientras el resto de la
-   página sube y lo tapa. */
+   página sube y lo tapa. 
+*/
 .hero-spacer {
   display: block;
   height: 100vh;
@@ -67,7 +70,8 @@ body {
 }
 
 /* Texturas superpuestas con mezcla "screen" para dar
-   densidad al estampado sin tapar el logo */
+   densidad al estampado sin tapar el logo 
+*/
 .hero__pattern--rosa-base,
 .hero__pattern--rosa,
 .hero__vignette {
@@ -117,7 +121,8 @@ body {
 }
 
 /* El contenido que sigue necesita su propio contexto de
-   apilamiento por encima del hero fijo */
+   apilamiento por encima del hero fijo 
+*/
 main {
   position: relative;
   z-index: 2;
@@ -134,11 +139,11 @@ footer {
   z-index: 2;
 }
 
-/* ---------- Vídeo fijo en Lookbook (mismo efecto namedcollective.com
-   que el hero de Inicio, pero sin estampado) ----------
+/* Vídeo fijo en Lookbook:
    El vídeo pasa de estar en el flujo normal (CSS base) a quedarse
    pegado a la pantalla mientras el resto de la página (intro y fotos)
-   sube y lo va tapando. */
+   sube y lo va tapando. 
+*/
 .lookbook-video-spacer {
   display: block;
   height: 100vh;
@@ -161,7 +166,8 @@ footer {
 
 /* Estas secciones necesitan su propio contexto de apilamiento por
    encima del vídeo fijo, igual que .desfile/.manifiesto-section en
-   Inicio por encima del hero fijo */
+   Inicio por encima del hero fijo 
+*/
 .intro,
 .portfolio {
   position: relative;
@@ -170,8 +176,10 @@ footer {
 
 /* El collage no tapa el vídeo: sin fondo, las fotos se ven flotando
    encima del vídeo fijo. El título lleva sombra para leerse sobre
-   cualquier fotograma. Sin iag.css el vídeo no es fijo y el portfolio
-   vuelve a su fondo negro de lookbook.css. */
+   cualquier fotograma. 
+   Sin iag.css el vídeo no es fijo y el portfolio
+   vuelve a su fondo negro de lookbook.css. 
+*/
 .portfolio {
   background-color: transparent;
 }
@@ -184,12 +192,13 @@ footer {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* ---------- Desfile de Inicio: carrusel animado ----------
+/* Desfile de Inicio: carrusel animado:
    La fila estática de looks (CSS base) pasa a ser una cinta que se
    desliza en bucle infinito, igual que tenía antes el lookbook. Al
    pasar el ratón por encima se detiene la cinta entera (para poder
    mirar bien) y el look bajo el cursor se amplía con el mismo hover
-   simple que ya tiene la capa evaluable (inicio.css). */
+   simple que ya tiene la capa evaluable (inicio.css). 
+*/
 .desfile__lista {
   flex-wrap: nowrap;
   width: max-content;
@@ -197,8 +206,8 @@ footer {
      cuadrícula; en modo cinta hay que anularlo, si no las 22 tarjetas
      se comprimen para caber en esos 1300px (con flex-wrap:nowrap no
      pueden bajar de línea, así que se encogen y las imágenes de
-     220px fijos se solapan unas con otras -- el texto de un
-     figcaption "Look XX" acaba pintado encima de la foto de al lado). */
+     220px fijos se solapan unas con otras). 
+  */
   max-width: none;
   animation: deslizar-desfile 30s linear infinite;
 }
@@ -208,7 +217,8 @@ footer {
 }
 
 /* Las copias duplicadas (ocultas en el CSS base) se muestran solo en
-   modo carrusel, para que el bucle no tenga corte visible */
+   modo carrusel, para que el bucle no tenga corte visible 
+*/
 .desfile__item[aria-hidden="true"] {
   display: block;
 }

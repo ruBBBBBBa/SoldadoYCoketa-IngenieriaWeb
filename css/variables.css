@@ -1,12 +1,13 @@
-/* ============================================
-   SOLDADO Y COKETA — Variables de marca
+/* 
+   SOLDADO Y COKETA - Variables de marca:
+
    Un único punto donde se definen los colores y
    tipografías para no repetirlos en cada .css
-   ============================================
 
    Estas son algunas de las técnicas que he utilizado para el proyecto que no aparecen en
    ningún lado en las diapositivas del tema y que me parece que debería explicar un poco para
    demostrar que no las he dejado puestas sin entenderlas:
+
    - Custom properties (:root + var()), como en este fichero.
       Estas las he utilizado principalmente para la paleta de colores de la marca, pero también
       son bastante útiles para el tamaño de algunas divisiones y para las tipografías.
@@ -37,7 +38,7 @@
       Reparte las fotos en columnas respetando la proporción de cada una, como un mosaico,
       en vez de recortarlas todas al mismo tamaño.
 
-   */
+*/
 
 :root {
   /* Paleta extraída de los assets originales de la marca */

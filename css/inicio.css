@@ -1,9 +1,9 @@
-/* ============================================
-   INICIO — Soldado y Coketa
-   CSS base (sin efectos de IA): la página se ve
-   completa y ordenada aunque no se enlace iag.css.
-   ============================================
-   Usa var() y clamp() para tipografía fluida
+/* 
+  INICIO - Soldado y Coketa:
+
+  Sin efectos de IA la página se ve completa y ordenada aunque no se enlace iag.css.
+
+  Usa var() y clamp() para tipografía fluida
 */
 
 /* Selector de ELEMENTO */
@@ -14,12 +14,12 @@ body {
   font-family: var(--fuente-cuerpo);
 }
 
-/* ---------- Ventana emergente "Parental Advisory" ----------
+/* Ventana emergente "Parental Advisory":
    .aviso es una capa fija a pantalla completa, semitransparente, por
-   encima de todo (incluida la barra de pole de iag.css, que usa
-   z-index 100), y .aviso__caja es la ventanita del aviso en el centro.
-   El desenfoque del fondo está en iag.css. Se cierra sin JavaScript
-   al marcar #aviso-check desde el botón "Me atrevo!!". */
+   encima de todo, y .aviso__caja es la ventanita del aviso en el centro.
+   El desenfoque del fondo está en iag.css. 
+   Se cierra sin JavaScript al marcar #aviso-check desde el botón "Me atrevo!!". 
+*/
 .aviso {
   position: fixed;
   top: 0;
@@ -35,14 +35,12 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Pseudo-clase :checked + combinador ~: al marcar el checkbox
-   desaparece la ventana */
+/* Pseudo-clase :checked + combinador ~: al marcar el checkbox desaparece la ventana */
 #aviso-check:checked ~ .aviso {
   display: none;
 }
 
-/* Checkbox oculto visualmente (mismo patrón que .prod-check en la
-   tienda): sigue siendo accesible por teclado y lector de pantalla */
+/* Checkbox oculto visualmente: sigue siendo accesible por teclado y lector de pantalla */
 .aviso-check {
   position: absolute;
   width: 1px;
@@ -64,8 +62,7 @@ body {
   text-align: center;
 }
 
-/* Tope de ancho y de alto a la vez (como el logo del hero) para que
-   quepa también con el móvil en horizontal */
+/* Tope de ancho y de alto a la vez para que quepa también con el móvil en horizontal */
 .aviso__img {
   display: block;
   width: auto;
@@ -81,9 +78,7 @@ body {
   gap: 1rem;
 }
 
-/* Los dos botones comparten tamaño y fuente; se distinguen por el
-   color: "Me atrevo!!" relleno en rosa, "Soy aburridx:(" solo con
-   borde */
+/* Los dos botones comparten tamaño y fuente; se distinguen por el color */
 .aviso__boton {
   display: inline-block;
   font-family: var(--fuente-display);
@@ -118,15 +113,14 @@ body {
   color: var(--color-negro);
 }
 
-/* Foco de teclado: el foco real está en el checkbox oculto, así que
-   el contorno se dibuja en su label (el botón "Me atrevo!!") */
+/* Foco de teclado: el foco real está en el checkbox oculto, así que el contorno se dibuja en su label */
 #aviso-check:focus-visible ~ .aviso .aviso__boton--entrar,
 .aviso__boton--salir:focus-visible {
   outline: 2px solid var(--color-blanco);
   outline-offset: 3px;
 }
 
-/* ---------- Hero ---------- */
+/* HERO */
 .hero {
   display: flex;
   flex-direction: column;
@@ -146,15 +140,13 @@ body {
   gap: 2.5rem;
 }
 
-/* Tamaño en unidades relativas, no en píxeles: max-height (no height
-   fijo) + max-width juntos, con width/height en auto, para que el
-   navegador escale por la dimensión más restrictiva manteniendo la
-   proporción real de cada imagen. Con un height fijo en vh, en
-   pantallas muy altas y estrechas (móvil en vertical) el max-width
-   en vw recorta el ancho pero no el alto, y el logo sale deformado. */
-/* El logo hace de <h1> de la página (su alt es el texto del título):
-   se quitan los márgenes por defecto del h1 para que no cambie nada
-   visualmente. */
+/* Tamaño en unidades relativas, no en píxeles. Con un height fijo en vh, en
+   pantallas muy altas y estrechas el max-width en vw recorta el anch0 pero no el
+   alto, y el logo sale deformado. 
+*/
+/* El logo hace de <h1> de la página:
+   se quitan los márgenes por defecto del h1 para que no cambie nada visualmente. 
+*/
 .hero__titulo {
   margin: 0;
 }
@@ -208,13 +200,11 @@ body {
   outline-offset: 3px;
 }
 
-/* ---------- Desfile (fila de looks, fondo transparente) ----------
+/* Desfile (fila de looks, fondo transparente):
    Los PNG de modelo-N ya están recortados sobre fondo transparente,
-   así que la sección no lleva ningún fondo/recuadro propio: se ven
-   "puestos en fila", como en un desfile. En esta capa es una fila
-   estática con hover simple; si se enlaza iag.css se convierte en
-   cinta animada (las copias con aria-hidden solo tienen sentido ahí,
-   por eso se ocultan aquí). */
+   así que la sección no lleva ningún fondo/recuadro propio. 
+   En esta capa es una fila estática con hover simple, si se enlaza 
+   iag.css se convierte en cinta animada. */
 .desfile {
   padding: 3.5rem 1.5rem;
   background-color: var(--color-negro);
@@ -254,8 +244,7 @@ body {
   transition:
     transform 0.25s ease,
     border-color 0.2s ease;
-  /* Evita seleccionar contenido sin querer al arrastrar el ratón sobre
-     la cinta en movimiento. */
+  /* Evita seleccionar contenido sin querer al arrastrar el ratón sobre la cinta en movimiento. */
   user-select: none;
 }
 
@@ -279,7 +268,7 @@ body {
   margin-top: 2.5rem;
 }
 
-/* ---------- Manifiesto de marca ---------- */
+/* Manifiesto de marca */
 .manifiesto-section {
   background-color: var(--color-gris-oscuro);
   padding: 4rem 1.5rem;
@@ -321,7 +310,7 @@ body {
   padding: 0.4rem 1rem;
 }
 
-/* ---------- Media query: para las pantallas pequeñas (móvil) ---------- */
+/* Media query: para las pantallas pequeñas (móvil) */
 @media (max-width: 640px) {
   .hero {
     padding: 3rem 1rem;

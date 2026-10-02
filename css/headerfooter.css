@@ -1,15 +1,15 @@
-/* ============================================
-   HEADER + FOOTER — Soldado y Coketa
-   Estructura común a las 3 páginas (index, lookbook,
-   tienda). Van en un único fichero porque el header y
-   el footer son la MISMA plantilla en todas las páginas.
-   ============================================
-   Usa var() (ver variables.css para el porqué), y además
-   position: sticky en el header y transition en los :hover
-   de enlaces/botones — CSS3 estándar, ver nota completa en
-   variables.css. */
+/* 
+  HEADER + FOOTER - Soldado y Coketa:
 
-/* ---------- HEADER ---------- */
+  Estructura común a las 3 páginas (index, lookbook,
+  tienda). Van en un único fichero porque el header y
+  el footer son la MISMA plantilla en todas las páginas.
+   
+  Usa var() y position: sticky en el header y transition en los :hover
+  de enlaces/botones 
+*/
+
+/* HEADER */
 
 /* Selector de ELEMENTO */
 header {
@@ -76,16 +76,9 @@ header {
 
 /* El tamaño se fija aquí, no en el HTML: alto en vh (relativo a la
    pantalla) y ancho máximo en % (relativo al contenedor), nunca en
-   píxeles fijos, para que el logo escale con el header en cualquier
-   resolución.
-   El 40% va en el LINK, no en la imagen: si se pone en la imagen,
-   su ancho máximo queda calculado sobre el propio ancho del link
-   (que se ajusta al contenido, es decir, a la imagen) -- una
-   referencia circular que en la práctica encoge y deforma el logo
-   a una fracción de su tamaño real. Puesto en el link (que sí tiene
-   un ancho de referencia claro: el de .header__nav-row) el 40% solo
-   actúa como tope de seguridad en pantallas muy bajas/anchas, sin
-   afectar al tamaño normal. */
+   píxeles fijos (como bien comentaste en clase), para que el logo 
+   escale con el header en cualquier resolución.
+*/
 .header__logo-link {
   display: flex;
   align-items: center;
@@ -139,7 +132,7 @@ header {
   border-color: var(--color-rosa);
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 
 footer {
   background-color: var(--color-negro);
@@ -256,7 +249,7 @@ footer {
   color: var(--color-gris);
 }
 
-/* ---------- Media query: pantallas pequeñas (móvil) ---------- */
+/* Media query: pantallas pequeñas (móvil) */
 @media (max-width: 640px) {
   .header__nav-row {
     flex-direction: column;
