@@ -430,7 +430,7 @@ nth-child) — hay que completarlos antes de entregar.
       siempre (`calc()` con `var()`, falso positivo del validador). Restos
       de historia en `iag.css`: menciona un `figcaption "Look XX"` y "lo
       que tenía antes el lookbook", que ya no existen.
-- [ ] Erratas en comentarios de `index.html`: "navegr" → "navegar",
+- [x] Erratas en comentarios de `index.html`: "navegr" → "navegar",
       "PArte" → "Parte".
 
 **Pedidos del equipo (2026-09-29):**
