@@ -188,8 +188,37 @@ footer {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
+/* Intro del Lookbook: tampoco tapa el vídeo (sin el recuadro negro de
+   lookbook.css). El título lleva la misma sombra que "La colección", y
+   la frase pasa a blanco con una sombra doble (un borde oscuro pegado a
+   las letras y un halo más amplio) para leerse también sobre los
+   fotogramas claros del vídeo */
+.intro--lookbook {
+  background-color: transparent;
+}
+
+.intro--lookbook h1 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.intro--lookbook p {
+  color: var(--color-blanco);
+  font-weight: 500;
+  text-shadow:
+    0 0 3px rgba(0, 0, 0, 0.95),
+    0 1px 14px rgba(0, 0, 0, 0.9);
+}
+
 .portfolio__lista img {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Los diseños recortados (PNG con fondo transparente) no llevan la
+   sombra rectangular, que dibujaría una caja alrededor: llevan una
+   sombra que sigue el contorno del dibujo */
+.portfolio__lista .portfolio__recorte {
+  box-shadow: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
 }
 
 /* Desfile de Inicio: carrusel animado:

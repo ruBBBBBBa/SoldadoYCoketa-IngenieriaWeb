@@ -516,7 +516,39 @@ nth-child) — hay que completarlos antes de entregar.
         muestres ;)").
       - Actualizar los enlaces y el texto que mencionen "tallas" en el
         Lookbook (descripción `<meta>`, comentarios).
-- [ ] **Otras fotos y otro orden en el collage del Lookbook.** El
+- [x] **Collage del Lookbook con las fotos nuevas** (2026-10-02), 36 imágenes:
+      - Las 31 que añadió el usuario (fotos de móvil, 7 diseños en PNG con
+        fondo transparente y un GIF), más `foto-01`, `16`, `17`, `18` y
+        `20`, que el usuario mantuvo.
+      - Copias web: JPG a 1600 px como máximo y calidad 82, girados según
+        su EXIF. Los PNG recortados a su contenido, a 1200 px como máximo
+        y con la transparencia intacta. Nombres sin espacios
+        (`img-0217.jpg`, `artwork-26.png`…). Los originales (unos 60 MB)
+        quedaron fuera del repo, en `../assets-originales/lookbook/`.
+      - Se quitaron 4 fotos viejas que eran **copias exactas** de fotos
+        nuevas: `foto-15` = `img-0655`, `foto-19` = `img-7601`, `foto-21`
+        = `img-8383` y `foto-22` = `img-8386`. Están también en
+        `../assets-originales/lookbook/`.
+      - Se giraron 90° `foto-18` e `img-8379` (las del bosque), que salían
+        tumbadas.
+      - Orden barajado con una semilla fija: no van seguidas 2 del mismo
+        grupo (pasarela, bosque, cuadernos, PNG…), y "Real" va justo
+        antes de "Goat l.aura" para que se lea la frase.
+      - Los PNG llevan `class="portfolio__recorte"`. En `iag.css` cambian
+        la sombra rectangular por `filter: drop-shadow`, que sigue el
+        contorno del dibujo, así que flotan sobre el vídeo sin caja.
+      - `alt` descriptivo en cada imagen. Revisar que los textos son
+        correctos.
+      - Validado en W3C (0 errores) y probado con Playwright: las 36
+        cargan, sin scroll lateral, en escritorio y móvil.
+      Pedido original: **Otras fotos y otro orden en el collage del Lookbook.**
+- [x] **Intro del Lookbook sin el recuadro negro** (2026-10-02): con
+      `iag.css`, la sección (ahora `class="intro intro--lookbook"`) es
+      transparente y se ve el vídeo detrás. El título "Lookbook" es más
+      grande (`clamp(3rem, 10vw, 5.5rem)` en `lookbook.css`) y lleva la
+      misma sombra que "La colección". La frase pasa a blanco con una
+      sombra doble para leerse sobre fotogramas claros. Comprobado en 3
+      momentos del vídeo, en escritorio y móvil. La Tienda no cambia. El
       usuario elige cuáles y en qué orden. Hoy son las 22 de
       `assets/lookbook/foto-01..22.jpg` en orden numérico. Al cambiarlas
       hay que actualizar los `alt`. Sin `width`/`height` en el HTML (ver

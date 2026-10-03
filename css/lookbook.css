@@ -29,7 +29,7 @@ body {
 .intro h1 {
   font-family: var(--fuente-display);
   color: var(--color-rosa);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(3rem, 10vw, 5.5rem);
   letter-spacing: 0.03em;
   margin-bottom: 0.75rem;
 }
